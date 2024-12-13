@@ -4,7 +4,7 @@
 
 I am a quantitative finance researcher and emerging investment manager. 
 
-My key area of interest is the application of neural networks and machine learning in portfolio management and systematic trading.
+My key area of interest is the application of machine learning and neural networks in portfolio management and systematic trading.
 
 Previously, I have worked as a financial analyst at [Morningstar](https://www.morningstar.com/), [Pagaya](pagaya.com) and [Bank Leumi](https://english.leumi.co.il/WnnnWn/Company_Profile/38044/). 
 
