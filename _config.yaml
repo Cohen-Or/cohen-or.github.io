@@ -2,3 +2,5 @@ markdown: kramdown
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge  # Enable Rouge syntax highlighting
+  syntax_highlighter_opts:
+      guess_lang: true  # Optional: allows Rouge to automatically detect the language
