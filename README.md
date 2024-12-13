@@ -1,4 +1,5 @@
 # Or Cohen
+<img style="float: right;" src="images/profile.jpg">
 
 I am a quantitative finance researcher and emerging investment manager. 
 
