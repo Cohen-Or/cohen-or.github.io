@@ -19,7 +19,6 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Simple page structure with minimal styles */
     body {
       color: #333;
       padding: 20px;
@@ -50,7 +49,7 @@
       margin-top: 30px;
     }
 
-/*     /* Syntax Highlighting for Rouge (code blocks) */
+    /* Syntax Highlighting for Rouge (code blocks) */
     pre code {
       display: block;
       background-color: #f5f5f5;
@@ -60,13 +59,41 @@
       white-space: pre-wrap;
     }
 
-    /* Optional custom color for Python code blocks */
+    /* Custom styling for Python syntax highlighting */
+    .language-python .keyword {
+      color: #d14;  /* Color for Python keywords like def, return, etc. */
+    }
+
+    .language-python .function {
+      color: #795da3;  /* Color for function names */
+    }
+
+    .language-python .string {
+      color: #df0000;  /* Color for strings */
+    }
+
+    .language-python .number {
+      color: #008000;  /* Color for numbers */
+    }
+
+    .language-python .comment {
+      color: #888;  /* Color for comments */
+      font-style: italic;
+    }
+
+    .language-python .variable {
+      color: #0000ff;  /* Color for variables */
+    }
+
+    .language-python .operator {
+      color: #000000;  /* Color for operators (e.g., `=`, `+`, `-`, etc.) */
+    }
+
+    /* Optional: Adjust background for Python code blocks specifically */
     .language-python {
       background-color: #f0f0f0;
-      color: #d14;
-    } */
+    }
   </style>
-
 </head>
 <body>
 
