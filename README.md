@@ -1,5 +1,5 @@
 # Or Cohen
-<img style="float: right;" src="images/profile.jpg">
+<img alt="Or Cohen" src="/images/profile.jpg" style="float: right; max-width: 33%; margin: 0 0 1em 2em; border-radius: 50%">
 
 I am a quantitative finance researcher and emerging investment manager. 
 
