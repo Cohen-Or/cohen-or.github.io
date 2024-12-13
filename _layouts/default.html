@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+
+  <!-- MathJax: For LaTeX Rendering -->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <!-- Optional: Add a simple stylesheet -->
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+</head>
+<body>
+  <!-- Header: Optional -->
+  <header>
+    <h1><a href="{{ site.url }}">{{ site.title }}</a></h1>
+  </header>
+
+  <!-- Main content area: Where Markdown content is injected -->
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- Footer: Optional -->
+  <footer>
+    <p>Powered by Jekyll and GitHub Pages</p>
+  </footer>
+</body>
+</html>
