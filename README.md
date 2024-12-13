@@ -1,6 +1,7 @@
 test
 inline $E = mc^2$
-block
+
+* block
 
 
 $$
