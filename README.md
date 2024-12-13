@@ -2,7 +2,7 @@
 
 # Or Cohen
 
-I am a quantitative finance researcher and emerging investment manager. 
+I am a quantitative finance researcher and an emerging investment manager. 
 
 My key area of interest is the application of machine learning and neural networks in portfolio management and systematic trading.
 
