@@ -2,9 +2,9 @@
 
 # Or Cohen
 
-I am a quantitative finance researcher and an emerging investment manager. 
+I am a quantitative finance researcher and portfolio manager. 
 
-My key area of interest is the application of machine learning and neural networks in portfolio management and systematic trading.
+My key area of interest is the application of machine learning and neural networks in systematic trading and dynamic asset allocation.
 
 Previously, I have worked as a financial analyst at [Morningstar](https://www.morningstar.com/), [Pagaya](pagaya.com) and [Bank Leumi](https://english.leumi.co.il/WnnnWn/Company_Profile/38044/). 
 
