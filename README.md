@@ -9,3 +9,4 @@ Previously, I have worked as an analyst at [Morningstar](https://www.morningstar
 [Email](mailto:or.cohen5@gmail.com) / [Linkedin](https://www.linkedin.com/in/or-cohen/) / [Github](https://github.com/Cohen-Or)
 
 ## Writing
+___
