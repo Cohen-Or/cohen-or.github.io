@@ -1,20 +1,7 @@
-test
-inline $$E = mc^2$$
+# Or Cohen
 
-* block
+I am a quantitative finance researcher which means I craft data-driven tools for risk and portfolio management.
 
-```python
-x = lambda g: g+3
-def a():
-	a+b
-	return x
-```
+My key area of interest is the application of neural networks and machine learning in portfolio management and systematic trading.
 
-* code ends
-
-
-$$
-a^2 + b^2 = c^2
-$$
-
-
+Previously, I have worked as an analyst at [Morningstar](https://www.morningstar.com/), [Pagaya](pagaya.com) and [Bank Leumi](https://english.leumi.co.il/WnnnWn/Company_Profile/38044/). 
