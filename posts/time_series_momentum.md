@@ -17,10 +17,10 @@ Time series momentum is identified by looking at the asset's price history, whil
 
 Like with any trading strategy, momentum strategies have their unique risks and limitations and overlooking them is a surefire way to losing money. The primary enemy of momentum is its counterpart effect, mean-reversion, since there is simply no guarantee that the trend will persist and not reverse sharply. Market conditions also play a crucial role since momentum performs well in trending markets but struggles in sideways or volatile markets. Finally, there are also the pitfalls common to all quantitative strategies such as overfitting and the low signal-to-noise ratio.
 
-The researched of Moskowitz et al. [2] found that the the longer the time horizon the higher the likelihood of momentum to revert or decay. Shorter time horizons therefor result in higher Sharpe ratio at the expense of higher trading fees. With this is mind, let's explore a recently published HFT momentum strategy.
+The researched of Moskowitz et al. [2] found that the the longer the time horizon the higher the likelihood of momentum to revert or decay. Shorter time horizons therefor result in higher Sharpe ratio at the expense of higher trading fees.
 
 ## Beat the Market
-In this post we will explore the strategy published by Zarattini et al. [3] which mitigates the risks inherent to momentum trading in a fairly low-complexity fashion. I never shy away from sophisticated models yet I always favor a straightforward method over fancy-shmancy black-box solution.
+In the rest post we will explore the strategy published by Zarattini et al. [3] which mitigates the risks inherent to momentum trading in a fairly low-complexity fashion. I never shy away from sophisticated models yet I always favor a straightforward method over fancy-shmancy black-box solution.
 
 We can break down this strategy to two parts: determining entry and exit criteria and bet-sizing.  In the rest of this post, we will implement this strategy using the ^QQQ historic OHLCV data with 5 minutes interval over the past 3 years.
 
