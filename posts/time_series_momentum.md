@@ -80,7 +80,7 @@ days = pd.Series(data.index.date)
 daily_grp = data.groupby(data.index.date, group_keys=False)
 
 data['abs_ret'] = daily_grp['Open'].apply(lambda x : (np.log(x) - np.log(x.iloc[0])).abs())
-data['avg_ret'] = data.groupby([data.index.hour, data.index.minute], 	group_keys=False)
+data['avg_ret'] = data.groupby([data.index.hour, data.index.minute], group_keys=False)
  .apply(lambda x: x['abs_ret'].rolling(14).mean())
 data['open_t'] = days.map(daily_grp.Open.first()).values
 data['close_tm1'] = days.map(daily_grp.Close.last().shift(1)).values
