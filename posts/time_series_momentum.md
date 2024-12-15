@@ -92,12 +92,12 @@ data['VWAP'] = daily_grp.apply(lambda x: (x.loc[:,['High','Low','Close']].mean(a
 # Entry signal
 data['position'] = np.select([data.Close > data.upper_bound, data.Close < data.lower_bound],
  [1, -1], default=np.nan)
-data['position'] = data.groupby(data.index.date, group_keys=False).apply(lambda x: x['position'].ffill())
+data['position'] = daily_grp.apply(lambda x: x['position'].ffill())
 
 # Exit signal
 data['position'] = np.where(
- (data.position ==1) & (data.Close <	data[['upper_bound','VWAP']].max(axis=1)) |
- (data.position == -1) & (data.Close > 	data[['lower_bound','VWAP']].min(axis=1)),
+ (data.position ==1) & (data.Close < data[['upper_bound','VWAP']].max(axis=1)) |
+ (data.position == -1) & (data.Close > data[['lower_bound','VWAP']].min(axis=1)),
  0, data.position)
 
 # Upon an exit signal trigger, close the position for rest of the day 
