@@ -77,55 +77,27 @@ In python, we implement this using Pandas library vectorized operations which al
 ```python
 
 days = pd.Series(data.index.date)
-
 daily_grp = data.groupby(data.index.date, group_keys=False)
 
-data['abs_ret'] = daily_grp['Open']
-.apply(lambda x : (np.log(x) - np.log(x.iloc[0]))
-.abs())
-
-data['avg_ret'] = data
-.groupby([data.index.hour, data.index.minute], 	
-group_keys=False).apply(lambda x: x['abs_ret']
-.rolling(14).mean())
-
+data['abs_ret'] = daily_grp['Open'].apply(lambda x : (np.log(x) - np.log(x.iloc[0])).abs())
+data['avg_ret'] = data.groupby([data.index.hour, data.index.minute], 	group_keys=False).apply(lambda x: x['abs_ret'].rolling(14).mean())
 data['open_t'] = days.map(daily_grp.Open.first()).values
-
-data['close_tm1'] = days.map(daily_grp.Close.last()
-.shift(1)).values
-
-data['upper_bound'] = data[['close_tm1','open_t']]
-.max(axis=1) * (1 + data['avg_ret'])
-
-data['lower_bound'] = data[['close_tm1','open_t']]
-.min(axis=1) * (1 - data['avg_ret'])
-
-data['VWAP'] = daily_grp.apply(
-lambda x: (x.loc[:,['High','Low','Close']]
-.mean(axis=1) * x.Volume).cumsum()
- / x.Volume.cumsum())
+data['close_tm1'] = days.map(daily_grp.Close.last().shift(1)).values
+data['upper_bound'] = data[['close_tm1','open_t']].max(axis=1) * (1 + data['avg_ret'])
+data['lower_bound'] = data[['close_tm1','open_t']].min(axis=1) * (1 - data['avg_ret'])
+data['VWAP'] = daily_grp.apply(lambda x: (x.loc[:,['High','Low','Close']].mean(axis=1) * x.Volume).cumsum() / x.Volume.cumsum())
 
 # Entry signal
-data['position'] = np.select(
-[data.Close > data.upper_bound, 
-data.Close < data.lower_bound], [1, -1], 		
-default=np.nan)
-
-data['position'] = data.groupby(data.index.date, 
-group_keys=False).apply(lambda x: x['position']
-.ffill())
+data['position'] = np.select([data.Close > data.upper_bound, data.Close < data.lower_bound], [1, -1], default=np.nan)
+data['position'] = data.groupby(data.index.date, group_keys=False).apply(lambda x: x['position'].ffill())
 
 # Exit signal
-data['position'] = np.where(
-(data.position ==1) & (data.Close <	
-data[['upper_bound','VWAP']].max(axis=1)) |
-(data.position == -1) & (data.Close > 	
-data[['lower_bound','VWAP']].min(axis=1)),
-0, data.position)
+data['position'] = np.where((data.position ==1) & (data.Close <	data[['upper_bound','VWAP']].max(axis=1)) |
+ (data.position == -1) & (data.Close > 	data[['lower_bound','VWAP']].min(axis=1)),
+ 0, data.position)
 
 # Upon an exit signal trigger, close the position for rest of the day 
 zffill = lambda s: s * (1 - (s == 0).cummax())
-
 data['position'] = daily_grp['position'].apply(zffill).fillna(0)
 ```
 ![Example of a short trade executed by the model](/images/tsm1.png)
