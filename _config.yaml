@@ -1,5 +1,6 @@
 markdown: kramdown
 kramdown:
   math_engine: mathjax
-  syntax_highlighter: Pygments  # Enable Rouge syntax highlighting
+  syntax_highlighter: rogue  # Enable Rouge syntax highlighting
+  input: GFM
   
