@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "Time Series Momentum"
 date: 2024-12-15
 ---
