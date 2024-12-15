@@ -80,15 +80,18 @@ days = pd.Series(data.index.date)
 daily_grp = data.groupby(data.index.date, group_keys=False)
 
 data['abs_ret'] = daily_grp['Open'].apply(lambda x : (np.log(x) - np.log(x.iloc[0])).abs())
-data['avg_ret'] = data.groupby([data.index.hour, data.index.minute], 	group_keys=False).apply(lambda x: x['abs_ret'].rolling(14).mean())
+data['avg_ret'] = data.groupby([data.index.hour, data.index.minute], 	group_keys=False)
+ .apply(lambda x: x['abs_ret'].rolling(14).mean())
 data['open_t'] = days.map(daily_grp.Open.first()).values
 data['close_tm1'] = days.map(daily_grp.Close.last().shift(1)).values
 data['upper_bound'] = data[['close_tm1','open_t']].max(axis=1) * (1 + data['avg_ret'])
 data['lower_bound'] = data[['close_tm1','open_t']].min(axis=1) * (1 - data['avg_ret'])
-data['VWAP'] = daily_grp.apply(lambda x: (x.loc[:,['High','Low','Close']].mean(axis=1) * x.Volume).cumsum() / x.Volume.cumsum())
+data['VWAP'] = daily_grp.apply(lambda x: (x.loc[:,['High','Low','Close']].mean(axis=1) * x.Volume)
+ .cumsum() / x.Volume.cumsum())
 
 # Entry signal
-data['position'] = np.select([data.Close > data.upper_bound, data.Close < data.lower_bound], [1, -1], default=np.nan)
+data['position'] = np.select([data.Close > data.upper_bound, data.Close < data.lower_bound],
+ [1, -1], default=np.nan)
 data['position'] = data.groupby(data.index.date, group_keys=False).apply(lambda x: x['position'].ffill())
 
 # Exit signal
@@ -108,7 +111,8 @@ As mentioned before, volatile market conditions diminish the potential for benef
 
 We'll add that to our implementation:
 ```python
-data['exposure'] = days.map(daily_grp['Close'].last().apply(np.log).diff().rolling(14).std().apply(lambda x: min(0.02/x, 4))).values
+data['exposure'] = days.map(daily_grp['Close'].last().apply(np.log).diff().rolling(14).std()
+ .apply(lambda x: min(0.02/x, 4))).values
 ```
 
 ___
