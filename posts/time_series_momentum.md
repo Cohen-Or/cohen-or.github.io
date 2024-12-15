@@ -75,6 +75,7 @@ $$
 In python, we implement this using Pandas library vectorized operations which allow efficient computation with fast execution. I chose to use log returns for  reasons that are explained [in this post.](https://gregorygundersen.com/blog/2022/02/06/log-returns/)
 
 ```python
+#comment
 days = pd.Series(data.index.date)
 
 daily_grp = data.groupby(data.index.date, group_keys=False)
