@@ -17,7 +17,7 @@ On a high-level, the existence of momentum is supported by the foundational econ
 
 Like with any trading strategy, momentum strategies have their unique risks and limitations; Overlooking them is a surefire way to losing money. The primary enemy of momentum is its counterpart effect, mean-reversion, as there is simply no guarantee that the trend won't reverse sharply. Market conditions also play a crucial role since momentum performs well in trending markets but struggles in sideways or volatile markets. 
 
-The researched of Moskowitz et al. [2] found that the the longer the time horizon the higher the likelihood of momentum to revert or decay. Shorter time horizons therefor result in higher Sharpe ratio at the expense of higher trading fees.
+The research by Moskowitz et al. [2] found that the the longer the time horizon the higher the likelihood of momentum to revert or decay. Consequently, shorter holding periods result in higher Sharpe ratio at the expense of higher trading fees.
 
 ## Beat the Market
 In the rest of this post we will explore the strategy published by Zarattini et al. [3] which mitigates the risks inherent to momentum trading in a fairly low-complexity fashion. I never shy away from sophisticated models yet I always favor a straightforward method over fancy-shmancy black-box solution.
@@ -25,7 +25,7 @@ In the rest of this post we will explore the strategy published by Zarattini et 
 We can break down this strategy to two parts: determining entry and exit criteria and bet-sizing. We'll implement this strategy using the ^QQQ historic OHLCV data with 5 minutes interval over the past 3 years.
 
 ### Distilling a signal from noisy data
- Starting with the entry entry and exit criteria, the strategy identifies abnormal trading activity by measuring the average absolute price movement from market Open to Close over a lookback period of 14 days. This archetype movement pattern from the market open is used to form an equilibrium zone defined by a Lower and Upper boundaries that is termed the Noise Area. Let's review it step by step.
+Starting with the entry entry and exit criteria, the strategy identifies abnormal trading activity by measuring the average absolute price movement from market Open to Close over a lookback period of 14 days. This archetype movement pattern from the market open is used to form an equilibrium zone defined by a Lower and Upper boundaries that is termed the Noise Area. Let's review it step by step.
  
  
 **Step 1:** For each day \( t - i \) and time-of-day \( HH:MM \), calculate the absolute move from Open as: 
@@ -71,7 +71,7 @@ $$
 \text{Short TrailingStop}_{t, HH:MM} = \min(\text{LB}_{t, HH:MM}, \text{VWAP}_{t, HH:MM}) 
 $$
 
-In python, we implement this using Pandas library vectorized operations which allow efficient computation with fast execution. I chose to use log returns for  reasons that are well detailed [in this post.](https://gregorygundersen.com/blog/2022/02/06/log-returns/)
+In python, we implement this using Pandas library vectorized operations which allow efficient computation with fast execution. I chose to use log returns for  reasons that are explained [in this post.](https://gregorygundersen.com/blog/2022/02/06/log-returns/)
 
 ```python
 days = pd.Series(data.index.date)
