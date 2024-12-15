@@ -108,9 +108,7 @@ As mentioned before, volatile market conditions diminish the potential for benef
 
 We'll add that to our implementation:
 ```python
-data['exposure'] = days.map(daily_grp['Close'].last()
-.apply(np.log).diff().rolling(14).std()
-.apply(lambda x: min(0.02/x, 4))).values
+data['exposure'] = days.map(daily_grp['Close'].last().apply(np.log).diff().rolling(14).std().apply(lambda x: min(0.02/x, 4))).values
 ```
 
 ___
