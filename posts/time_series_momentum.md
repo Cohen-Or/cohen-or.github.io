@@ -28,29 +28,33 @@ We can break down this strategy to two parts: determining entry and exit criteri
  Starting with the entry entry and exit criteria, the strategy identifies abnormal trading activity by measuring the average absolute price movement from market Open to Close over a lookback period of 14 days. This archetype movement pattern is used to form an equilibrium zone defined by a Lower and Upper boundaries that is termed the Noise Area. To account for overnight gaps, these boundaries are adjusted according to the steps below:
  
  
-1. For each day \( t - i \) and time-of-day \( HH:MM \), calculate the absolute move from Open as: 
+1. For each day \( t - i \) and time-of-day \( HH:MM \), calculate the absolute move from Open as:
+    
 $$ 
 \text{Move}_{t-i, 9:30-HH:MM} = \left| \frac{\text{Close}_{t-i, HH:MM}}{\text{Open}_{t-i, 9:30}} - 1 \right|, \quad \text{where } i = [1, 14]
 $$
- 2. For each time-of-day \( HH:MM \), calculate the average move over the last 14 days as: 
-  $$ 
-  \mu_{t, 9:30-HH:MM} = \frac{1}{14} \sum_{i=1}^{14} \text{Move}_{t-i, 9:30-HH:MM} 
-  $$
+
+ 2. For each time-of-day \( HH:MM \), calculate the average move over the last 14 days as:
+    
+$$ 
+\mu_{t, 9:30-HH:MM} = \frac{1}{14} \sum_{i=1}^{14} \text{Move}_{t-i, 9:30-HH:MM} 
+$$
 
 3. For the Upper Bound, define the start point as the higher of today's Open or yesterday's Close (gap-up case) and for the Lower Bound as the lower of the two. Using this starting point, compute the Upper and Lower Boundary as:
 
 $$ 
 \text{UpperBound}_{t, HH:MM} = \max(\text{Open}_{t, 9:30}, \text{Close}_{t-1, 16:00}) \times \left( 1 + \mu_{t, 9:30-HH:MM} \right) 
 $$ 
+
 $$
- \text{LowerBound}_{t, HH:MM} = \min(\text{Open}_{t, 9:30}, \text{Close}_{t-1, 16:00}) \times \left( 1 - \mu_{t, 9:30-HH:MM} \right) 
- $$
+\text{LowerBound}_{t, HH:MM} = \min(\text{Open}_{t, 9:30}, \text{Close}_{t-1, 16:00}) \times \left( 1 - \mu_{t, 9:30-HH:MM} \right) 
+$$
 
 4. Compute the *Noise Area* as the area between the Upper and Lower Boundaries:
 
-   $$
-   \text{NoiseArea}_{t, HH:MM} = \left[ \text{LowerBound}_{t, HH:MM}, \text{UpperBound}_{t, HH:MM} \right]
-   $$
+$$
+\text{NoiseArea}_{t, HH:MM} = \left[ \text{LowerBound}_{t, HH:MM}, \text{UpperBound}_{t, HH:MM} \right]
+$$
 
 5. An entry signal is triggered when the price breaks the Noise Area in the corresponding direction (long for the Upper Bound and short for the Lower Bound). 
 
@@ -58,14 +62,16 @@ $$
 
 $$ 
 \text{VWAP} = \frac{\sum_{i=1}^n P_i \cdot V_i}{\sum_{i=1}^n V_i}
- $$ 
+$$ 
 
 $$ 
 \text{Long TrailingStop}_{t, HH:MM} = \max(\text{UB}_{t, HH:MM}, \text{VWAP}_{t, HH:MM})
- $$ 
+$$
+
 $$
  \text{Short TrailingStop}_{t, HH:MM} = \min(\text{LB}_{t, HH:MM}, \text{VWAP}_{t, HH:MM}) 
- $$
+$$
+ 
 In python, we implement this using Pandas library vectorized operations which allow efficient computation with fast execution. I chose to use log returns for  reasons that are well detailed [in this post.](https://gregorygundersen.com/blog/2022/02/06/log-returns/)
 
 ```python
