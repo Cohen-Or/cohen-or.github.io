@@ -27,12 +27,20 @@ We can break this strategy down to two parts: determining entry and exit criteri
 $$
 \text{AbsMove}_{t-i, 9:30-HH:MM} = \left| \frac{\text{Close}_{t-i, HH:MM}}{\text{Open}_{t-i, 9:30}} - 1 \right|, \quad \text{where } i = [1, 14]
 $$
- 3. For each time-of-day \( HH:MM \), calculate the average move over the last 14 days as: 
-  $$ \mu_{t, 9:30-HH:MM} = \frac{1}{14} \sum_{i=1}^{14} \text{AbsMove}_{t-i, 9:30-HH:MM} $$
 
-4. For the Upper Bound, define the start point as the higher of today's Open or yesterday's Close (gap-up case) and for the Lower Bound as the lower of the two. Using this starting point, compute the Upper and Lower Boundary as:
+ 2. For each time-of-day \( HH:MM \), calculate the average move over the last 14 days as:
+$$
+\mu_{t, 9:30-HH:MM} = \frac{1}{14} \sum_{i=1}^{14} \text{AbsMove}_{t-i, 9:30-HH:MM}
+$$
 
-$$ \text{UpperBound}_{t, HH:MM} = \max(\text{Open}_{t, 9:30}, \text{Close}_{t-1, 16:00}) \times \left( 1 + \sigma_{t, 9:30-HH:MM} \right) $$ $$ \text{LowerBound}_{t, HH:MM} = \min(\text{Open}_{t, 9:30}, \text{Close}_{t-1, 16:00}) \times \left( 1 - \sigma_{t, 9:30-HH:MM} \right) $$
+3. For the Upper Bound, define the start point as the higher of today's Open or yesterday's Close (gap-up case) and for the Lower Bound as the lower of the two. Using this starting point, compute the Upper and Lower Boundary as:
+
+$$
+\text{UpperBound}_{t, HH:MM} = \max(\text{Open}_{t, 9:30}, \text{Close}_{t-1, 16:00}) \times \left( 1 + \sigma_{t, 9:30-HH:MM} \right) 
+$$ 
+$$ 
+\text{LowerBound}_{t, HH:MM} = \min(\text{Open}_{t, 9:30}, \text{Close}_{t-1, 16:00}) \times \left( 1 - \sigma_{t, 9:30-HH:MM} \right) 
+$$
 
 4. Compute the *Noise Area* as the area between the Upper and Lower Boundaries:
 
