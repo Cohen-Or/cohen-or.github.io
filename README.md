@@ -4,7 +4,7 @@
 
 I am a quantitative finance researcher and portfolio manager. I hold an MBA with a major in Finance (Magna Cum Laude) from [EDHEC Busniess School](https://www.edhec.edu/en) and a BA in Economics from the [University of Haifa](https://www.haifa.ac.il/?lang=en).
 
-My key area of interest is the application of machine learning and neural networks in systematic trading and dynamic asset allocation.
+My key area of interest is the application of machine learning and neural networks in systematic trading and portfolio management.
 
 Previously, I have worked as a financial analyst at [Morningstar](https://www.morningstar.com/), [Pagaya](pagaya.com) and [Bank Leumi](https://english.leumi.co.il/WnnnWn/Company_Profile/38044/). 
 
@@ -13,4 +13,4 @@ Previously, I have worked as a financial analyst at [Morningstar](https://www.mo
 ## Writing
 ___
 
-2024-12-15 [Time Series Momentum](/posts/time_series_momentum.md)
+* 2024-12-15 [Time Series Momentum](/posts/time_series_momentum.md)
