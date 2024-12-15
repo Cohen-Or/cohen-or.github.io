@@ -29,10 +29,13 @@ We can break down this strategy to two parts: determining entry and exit criteri
  
  
 **Step 1:** For each day \( t - i \) and time-of-day \( HH:MM \), calculate the absolute move from Open as: 
+
 $$ 
 \text{Move}_{t-i, 9:30-HH:MM} = \left| \frac{\text{Close}_{t-i, HH:MM}}{\text{Open}_{t-i, 9:30}} - 1 \right|, \quad \text{where } i = [1, 14]
 $$
+
 **Step 2:** For each time-of-day \( HH:MM \), calculate the average move over the last 14 days as: 
+
 $$ 
 \mu_{t, 9:30-HH:MM} = \frac{1}{14} \sum_{i=1}^{14} \text{Move}_{t-i, 9:30-HH:MM} 
 $$
@@ -42,6 +45,7 @@ $$
 $$ 
 \text{UpperBound}_{t, HH:MM} = \max(\text{Open}_{t, 9:30}, \text{Close}_{t-1, 16:00}) \times \left( 1 + \mu_{t, 9:30-HH:MM} \right) 
 $$ 
+
 $$
 \text{LowerBound}_{t, HH:MM} = \min(\text{Open}_{t, 9:30}, \text{Close}_{t-1, 16:00}) \times \left( 1 - \mu_{t, 9:30-HH:MM} \right) 
 $$
@@ -62,9 +66,11 @@ $$
 $$ 
 \text{Long TrailingStop}_{t, HH:MM} = \max(\text{UB}_{t, HH:MM}, \text{VWAP}_{t, HH:MM})
 $$ 
+
 $$
 \text{Short TrailingStop}_{t, HH:MM} = \min(\text{LB}_{t, HH:MM}, \text{VWAP}_{t, HH:MM}) 
 $$
+
 In python, we implement this using Pandas library vectorized operations which allow efficient computation with fast execution. I chose to use log returns for  reasons that are well detailed [in this post.](https://gregorygundersen.com/blog/2022/02/06/log-returns/)
 
 ```python
