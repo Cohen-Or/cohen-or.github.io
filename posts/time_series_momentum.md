@@ -13,7 +13,7 @@ On a high-level, the existence of momentum is supported by the foundational econ
 4. Market manipulation by high-frequency traders.
 5. Simultaneous triggering of trades based on stop orders. 
 
-Time series momentum is identified by looking at the asset's price history, while cross-sectional momentum is identified by benchmarking the assets performance over other assets. Both can be identified over varying time horizons.
+*Time series momentum* is identified by looking at the asset's price history, while *cross-sectional momentum* is identified by benchmarking the assets performance over other assets. Both can be identified over varying time horizons.
 
 Like with any trading strategy, momentum strategies have their unique risks and limitations and overlooking them is a surefire way to losing money. The primary enemy of momentum is its counterpart effect, mean-reversion, since there is simply no guarantee that the trend will persist and not reverse sharply. Market conditions also play a crucial role since momentum performs well in trending markets but struggles in sideways or volatile markets. Finally, there are also the pitfalls common to all quantitative strategies such as overfitting and the low signal-to-noise ratio.
 
