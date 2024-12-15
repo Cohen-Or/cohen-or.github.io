@@ -3,6 +3,7 @@
 # Or Cohen
 
 I am a quantitative finance researcher and portfolio manager. 
+
 My key area of interest is the application of machine learning and neural networks in systematic trading and portfolio management.
 
 I hold an MBA with a major in Finance (Magna Cum Laude) from [EDHEC Busniess School](https://www.edhec.edu/en) and a BA in Economics from the [University of Haifa](https://www.haifa.ac.il/?lang=en).Previously, I have worked as a financial analyst at [Morningstar](https://www.morningstar.com/), [Pagaya](pagaya.com) and [Bank Leumi](https://english.leumi.co.il/WnnnWn/Company_Profile/38044/). 
