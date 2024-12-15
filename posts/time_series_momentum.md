@@ -126,8 +126,8 @@ zffill = lambda s: s * (1 - (s == 0).cummax())
 
 data['position'] = daily_grp['position'].apply(zffill).fillna(0)
 ```
-![Example of a short trade executed by the model](/tsm1.jpg)
-![Example of a long trade and following VWAP exit signal](/tsm2.jpg)
+![Example of a short trade executed by the model](/tsm1.png)
+![Example of a long trade and following VWAP exit signal](/tsm2.png)
 
 ### Bet sizing
 As mentioned before, volatile market conditions diminish the potential for benefiting from the momentum effect. Therefor it is reasonable to adjust the exposure of a momentum trading strategy dynamically based on the current market volatility regime. To that end, the authors propose the following sizing methodology that targets a daily market volatility of 2%:
