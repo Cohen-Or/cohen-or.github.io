@@ -95,7 +95,8 @@ data['position'] = np.select([data.Close > data.upper_bound, data.Close < data.l
 data['position'] = data.groupby(data.index.date, group_keys=False).apply(lambda x: x['position'].ffill())
 
 # Exit signal
-data['position'] = np.where((data.position ==1) & (data.Close <	data[['upper_bound','VWAP']].max(axis=1)) |
+data['position'] = np.where(
+ (data.position ==1) & (data.Close <	data[['upper_bound','VWAP']].max(axis=1)) |
  (data.position == -1) & (data.Close > 	data[['lower_bound','VWAP']].min(axis=1)),
  0, data.position)
 
