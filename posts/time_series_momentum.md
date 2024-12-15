@@ -4,7 +4,7 @@ title: "Time Series Momentum"
 date: 2024-12-15
 ---
 # Time Series Momentum
-The momentum effect in financial assets can be dated as far back as the Dutch merchant fleet in 1600s Amsterdam. The idea is very intuitive, assets that have performed well in the past tend to continue performing well in the future, while assets that have performed poorly tend to continue underperforming. 
+The momentum effect in financial assets can be dated as far back as the Dutch merchant fleet in 1600s Amsterdam. The idea is very intuitive: assets that have performed well in the past tend to continue performing well in the future, while assets that have performed poorly tend to continue underperforming. 
 
 On a high-level, the existence of momentum is supported by the foundational economics theory of demand-and-supply and is a manifestation of a persistent deviation from market equilibrium. More specifically, it can be attributed to five main causes according to [1]:
 1. For futures, the persistence of roll returns, especially of their signs. 
@@ -40,7 +40,7 @@ $$
 \mu_{t, 9:30-HH:MM} = \frac{1}{14} \sum_{i=1}^{14} \text{Move}_{t-i, 9:30-HH:MM} 
 $$
 
-**Step 3:** For the Upper Bound, define the start point as the higher of today's Open or yesterday's Close (gap-up case) and for the Lower Bound as the lower of the two. Using this starting point, compute the Upper and Lower Boundary as:
+**Step 3:** For the *Upper Bound*, define the start point as the higher of today's Open or yesterday's Close (gap-up case) and for the *Lower Bound* as the lower of the two. Using this starting point, compute the Upper and Lower Boundary as:
 
 $$ 
 \text{UpperBound}_{t, HH:MM} = \max(\text{Open}_{t, 9:30}, \text{Close}_{t-1, 16:00}) \times \left( 1 + \mu_{t, 9:30-HH:MM} \right) 
