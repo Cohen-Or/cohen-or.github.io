@@ -3,7 +3,7 @@ layout: default
 title: "Time Series Momentum"
 date: 2024-12-15
 ---
-[Or Cohen](/README)
+[Or Cohen](/index.html)
 # Time Series Momentum
 The momentum effect in financial assets can be dated as far back as the Dutch merchant fleet in 1600s Amsterdam. The idea is very intuitive: assets that have performed well in the past tend to continue performing well in the future, while assets that have performed poorly tend to continue underperforming. 
 
