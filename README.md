@@ -1,4 +1,4 @@
-<img alt="Or Cohen" src="/images/profile.jpg" style="float: right; width: 250px; height: 250px; margin: 0 0 1em 2em; border-radius: 50%">
+<img alt="Or Cohen" src="/images/profile_photo.jpg" style="float: right; width: 250px; height: 250px; margin: 0 0 1em 2em; border-radius: 50%">
 
 # Or Cohen
 
