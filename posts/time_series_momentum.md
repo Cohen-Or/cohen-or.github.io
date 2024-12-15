@@ -15,14 +15,14 @@ On a high-level, the existence of momentum is supported by the foundational econ
 
 *Time series momentum* is identified by looking at the asset's price history, while *cross-sectional momentum* is identified by benchmarking the assets performance over other assets. Both can be identified over varying time horizons.
 
-Like with any trading strategy, momentum strategies have their unique risks and limitations; Overlooking them is a surefire way to losing money. The primary enemy of momentum is its counterpart effect, mean-reversion, since there is simply no guarantee that the trend will persist and not reverse sharply. Market conditions also play a crucial role since momentum performs well in trending markets but struggles in sideways or volatile markets. Finally, there are also the pitfalls common to all quantitative strategies such as overfitting and the low signal-to-noise ratio.
+Like with any trading strategy, momentum strategies have their unique risks and limitations; Overlooking them is a surefire way to losing money. The primary enemy of momentum is its counterpart effect, mean-reversion, as there is simply no guarantee that the trend won't reverse sharply. Market conditions also play a crucial role since momentum performs well in trending markets but struggles in sideways or volatile markets. 
 
 The researched of Moskowitz et al. [2] found that the the longer the time horizon the higher the likelihood of momentum to revert or decay. Shorter time horizons therefor result in higher Sharpe ratio at the expense of higher trading fees.
 
 ## Beat the Market
-In the rest post we will explore the strategy published by Zarattini et al. [3] which mitigates the risks inherent to momentum trading in a fairly low-complexity fashion. I never shy away from sophisticated models yet I always favor a straightforward method over fancy-shmancy black-box solution.
+In the rest of this post we will explore the strategy published by Zarattini et al. [3] which mitigates the risks inherent to momentum trading in a fairly low-complexity fashion. I never shy away from sophisticated models yet I always favor a straightforward method over fancy-shmancy black-box solution.
 
-We can break down this strategy to two parts: determining entry and exit criteria and bet-sizing.  In the rest of this post, we will implement this strategy using the ^QQQ historic OHLCV data with 5 minutes interval over the past 3 years.
+We can break down this strategy to two parts: determining entry and exit criteria and bet-sizing. We'll implement this strategy using the ^QQQ historic OHLCV data with 5 minutes interval over the past 3 years.
 
 ### Distilling a signal from noisy data
  Starting with the entry entry and exit criteria, the strategy identifies abnormal trading activity by measuring the average absolute price movement from market Open to Close over a lookback period of 14 days. This archetype movement pattern from the market open is used to form an equilibrium zone defined by a Lower and Upper boundaries that is termed the Noise Area. Let's review it step by step.
