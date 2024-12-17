@@ -1,4 +1,4 @@
-[Or Cohen](cohen-or.github.io)
+[Or Cohen](/index.html)
 
 # Cross Sectional Momentum and Learning to Rank with LambdaMART
 The momentum effect in financial assets can be dated as far back as the Dutch merchant fleet in 1600s Amsterdam. The idea is very intuitive, assets that have performed well in the past tend to continue performing well in the future, while assets that have performed poorly tend to continue underperforming. 
