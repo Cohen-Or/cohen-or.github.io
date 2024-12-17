@@ -8,7 +8,9 @@ On a high-level, the existence of momentum is supported by the foundational econ
 2. The slow diffusion, analysis, and acceptance of new information.  
 3. The forced sales or purchases of assets of various type of funds.  
 4. Market manipulation by high-frequency traders.
-5. Simultaneous triggering of trades based on stop orders. 
+5. Simultaneous triggering of trades based on stop orders.
+   
+> An object in motion tends to stay in motion, an object at rest tends to remain at rest. – Isaac Newton
 
 Time series momentum (TSM) is identified by looking at the asset's price history, while cross-sectional momentum (CSM) is identified by benchmarking the assets performance over other assets. Both can be observed over varying time horizons and both successfully capture risk premia, contrary to the efficient market hypothesis.
 
