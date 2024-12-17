@@ -19,7 +19,7 @@ A major advantage of the CSM strategy is the insulation against the common marke
  The rising amounts of digital data and the need to effectively search through it have led to significant progress in a family of algorithms in the field of Information Retrieval that are known as Learning to Rank or machine-learned ranking (MLR). These algorithms provide in response to a query a ranking of the results based on some metric of relevance.   
 ![Learning to Rank](https://www.elastic.co/guide/en/elasticsearch/reference/current/images/search/learning-to-rank-overview.png)
 
-**LambdaMART** is a state-of-the art MLR model developed by Christopher J.C. Burges and his colleagues at Microsoft Research[2]. Under the hood, the ranking task is transformed into a pairwise classification or regression problem. That means you look at pairs of items at a time, come up with the optimal ordering for that pair of items, and then use it to come up with the final ranking for all the results. 
+**LambdaMART** is a state-of-the art MLR model developed by Christopher J.C. Burges and his colleagues at Microsoft Research [2]. Under the hood, the ranking task is transformed into a pairwise classification or regression problem. That means you look at pairs of items at a time, come up with the optimal ordering for that pair of items, and then use it to come up with the final ranking for all the results. 
 
 Like a good yogi, LambdaMART is both powerful and flexible, making it the go-to choice for a wide range of problems. For example, in the case of a search use-case we can optimize for precision in order to get only the most relevant results. In the case of CSM, we are interested in better predictions across the entire spectrum so maximizing a ranking-specific evaluation metric, such as **NDCG** (Normalized Discounted Cumulative Gain) will be a better fit.
 
@@ -37,7 +37,7 @@ The proposed framework in [3] incorporated an interesting version of the MACD mo
 
 **Step 1:** Select 3 sets of time-scales, with each set consisting of a short and a long exponentially weighted moving average (EWMA).
 
-**Step 2:**  The authors chose $$S_k = (8, 16, 32)$$ and $$L_k = (24, 48, 96).$$  Those numbers are not look-back days or half-life numbers. In fact, each number (let’s call it n) translates to a lambda decay factor ($\lambda$) of $$\frac{n - 1}{n}$​$ to plug into the standard definition of an EWMA. The half-life (HL) is then given by:
+**Step 2:**  The authors chose $$S_k = (8, 16, 32)$$ and $$L_k = (24, 48, 96)$$.  Those numbers are not look-back days or half-life numbers. In fact, each number (let’s call it n) translates to a lambda decay factor (%$\lambda$%) of $$\frac{n - 1}{n}$​$ to plug into the standard definition of an EWMA. The half-life (HL) is then given by:
 
 $$ 
 HL = \frac{\log(0.5)}{\log(\lambda)} = \frac{\log(0.5)}{\log\left(1 - \frac{1}{n}\right)}
@@ -73,7 +73,7 @@ $$
 S_{CTA} = \sum_{k=1}^3 w_k u_k ​
 $$
 
-The model in [3] uses the CTA momentum signal as well as the interim MACD signals (ie. the values of $z_k$) for the past 1, 3,6 and 12-months periods along with normalized and raw return returns for the past 3, 6 and 12-months periods. All together this results in a matrix of 22 features. We can implement it in Python using Pandas vectorized operations which allow efficient computation with fast execution as follows:
+The model in [3] uses the CTA momentum signal as well as the interim MACD signals (ie. the values of $$z_k$$) for the past 1, 3,6 and 12-months periods along with normalized and raw return returns for the past 3, 6 and 12-months periods. All together this results in a matrix of 22 features. We can implement it in Python using Pandas vectorized operations which allow efficient computation with fast execution as follows:
 ```python
 hl = lambda decay : np.log(0.5) / np.log(1-1/decay)
 macd = lambda S, L: data.Close.ewm(halflife=hl(S)).mean() - 
