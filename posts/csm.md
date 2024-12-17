@@ -37,7 +37,7 @@ The proposed framework in [3] incorporated an interesting version of the MACD mo
 
 **Step 1:** Select 3 sets of time-scales, with each set consisting of a short and a long exponentially weighted moving average (EWMA).
 
-**Step 2:**  The authors chose $S_k = (8, 16, 32)$ and $L_k = (24, 48, 96).$  Those numbers are not look-back days or half-life numbers. In fact, each number (let’s call it n) translates to a lambda decay factor ($\lambda$) of $\frac{n - 1}{n}$​ to plug into the standard definition of an EWMA. The half-life (HL) is then given by:
+**Step 2:**  The authors chose $$S_k = (8, 16, 32)$$ and $$L_k = (24, 48, 96).$$  Those numbers are not look-back days or half-life numbers. In fact, each number (let’s call it n) translates to a lambda decay factor ($\lambda$) of $$\frac{n - 1}{n}$​$ to plug into the standard definition of an EWMA. The half-life (HL) is then given by:
 
 $$ 
 HL = \frac{\log(0.5)}{\log(\lambda)} = \frac{\log(0.5)}{\log\left(1 - \frac{1}{n}\right)} \tag​
