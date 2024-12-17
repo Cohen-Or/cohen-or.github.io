@@ -1,3 +1,5 @@
+[Or Cohen](cohen-or.github.io)
+
 # Cross Sectional Momentum and Learning to Rank with LambdaMART
 The momentum effect in financial assets can be dated as far back as the Dutch merchant fleet in 1600s Amsterdam. The idea is very intuitive, assets that have performed well in the past tend to continue performing well in the future, while assets that have performed poorly tend to continue underperforming. 
 
@@ -34,11 +36,12 @@ The research by Poh et. al [3] introduces a novel framework for the use of MLR i
 The proposed framework in [3] incorporated an interesting version of the MACD momentum indicator termed CTA momentum that was originally introduced in [4]. The algorithm for obtaining this signal is the following (as detailed in [4]):
 
 **Step 1:** Select 3 sets of time-scales, with each set consisting of a short and a long exponentially weighted moving average (EWMA).
-  **Step 2:**  Here, we have chosen $S_k = (8, 16, 32)$ and $L_k = (24, 48, 96).$  Those numbers are not look-back days or half-life numbers. In fact, each number (let’s call it n) translates to a lambda decay factor ($\lambda$) of $\frac{n - 1}{n}$​ to plug into the standard definition of an EWMA. The half-life (HL) is then given by:
+  **Step 2:**  The authors chose $S_k = (8, 16, 32)$ and $L_k = (24, 48, 96).$  Those numbers are not look-back days or half-life numbers. In fact, each number (let’s call it n) translates to a lambda decay factor ($\lambda$) of $\frac{n - 1}{n}$​ to plug into the standard definition of an EWMA. The half-life (HL) is then given by:
 $$ 
 HL = \frac{\log(0.5)}{\log(\lambda)} = \frac{\log(0.5)}{\log\left(1 - \frac{1}{n}\right)} \tag​
 $$
-**Step 3:** For each k=1,2,3 calculate:
+**Step 3:**  For each k=1,2,3 calculate:
+
 $$
 x_k = EWMA[P|S_k] - EWMA[P|L_k] 
 $$
@@ -49,16 +52,18 @@ $$
 y_k = \frac{x_k}{Run.StDev[P|PW]} 
 $$
 
-**Step 6:** We normalize this series with its realized standard deviation over the short window (SW=252):
+**Step 5:** We normalize this series with its realized standard deviation over the short window (SW=252):
     
 $$
 z_k = \frac{y_k}{Run.StDev[y_k|SW]} 
 $$
-**Step 7:** We calculate an intermediate signal for each k=1,2,3 via a response function R:
+**Step 6:** We calculate an intermediate signal for each k=1,2,3 via a response function R:
    $$ 
  \begin{cases} u_k = R(z_k) \\ R(x) = \frac{\exp(-\frac{x^2}{2})}{0.89} \end{cases} 
  $$
-8.  **Step (g):** The final CTA momentum signal is the weighted sum of the intermediate signals (here we have chosen equal weights $w_k = \frac{1}{3}$​):
+
+**Step 7:** The final CTA momentum signal is the weighted sum of the intermediate signals (here we have chosen equal weights $w_k = \frac{1}{3}$​):
+
 $$
 S_{CTA} = \sum_{k=1}^3 w_k u_k ​
 $$
@@ -69,7 +74,7 @@ hl = lambda decay : np.log(0.5) / np.log(1-1/decay)
 macd = lambda S, L: data.Close.ewm(halflife=hl(S)).mean() - 
 data.Close.ewm(halflife=hl(L)).mean()
 
-def CTA_macd(s,l):
+def CTA_momentum(s,l):
 	phi = []
 	result = {}
 	for i in zip(s,l):
