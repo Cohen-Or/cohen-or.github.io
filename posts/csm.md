@@ -59,9 +59,10 @@ z_k = \frac{y_k}{Run.StDev[y_k|SW]}
 $$
 
 **Step 6:** We calculate an intermediate signal for each k=1,2,3 via a response function R:
-   $$ 
+
+$$ 
  \begin{cases} u_k = R(z_k) \\ R(x) = \frac{\exp(-\frac{x^2}{2})}{0.89} \end{cases} 
- $$
+$$
 
 **Step 7:** The final CTA momentum signal is the weighted sum of the intermediate signals (here we have chosen equal weights $w_k = \frac{1}{3}$​):
 
