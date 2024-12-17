@@ -67,7 +67,7 @@ $$
  \begin{cases} u_k = R(z_k) \\ R(x) = \frac{\exp(-\frac{x^2}{2})}{0.89} \end{cases} 
 $$
 
-**Step 7:** The final CTA momentum signal is the weighted sum of the intermediate signals (here we have chosen equal weights $w_k = \frac{1}{3}$​):
+**Step 7:** The final CTA momentum signal is the weighted sum of the intermediate signals (here we have chosen equal weights $$w_k = \frac{1}{3}$$​):
 
 $$
 S_{CTA} = \sum_{k=1}^3 w_k u_k ​
