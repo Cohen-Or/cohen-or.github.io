@@ -10,7 +10,7 @@ On a high-level, the existence of momentum is supported by the foundational econ
 4. Market manipulation by high-frequency traders.
 5. Simultaneous triggering of trades based on stop orders.
    
-> An object in motion tends to stay in motion, an object at rest tends to remain at rest. – Isaac Newton
+> An object in motion tends to stay in motion, an object at rest tends to remain at rest. – Sir Isaac Newton
 
 Time series momentum (TSM) is identified by looking at the asset's price history, while cross-sectional momentum (CSM) is identified by benchmarking the assets performance over other assets. Both can be observed over varying time horizons and both successfully capture risk premia, contrary to the efficient market hypothesis.
 
@@ -39,7 +39,7 @@ The proposed framework in [3] incorporated an interesting version of the MACD mo
 
 **Step 1:** Select 3 sets of time-scales, with each set consisting of a short and a long exponentially weighted moving average (EWMA).
 
-**Step 2:**  The authors chose $$S_k = (8, 16, 32)$$ and $$L_k = (24, 48, 96)$$.  Those numbers are not look-back days or half-life numbers. In fact, each number (let’s call it n) translates to a lambda decay factor ($$\lambda$$) of $$\frac{n - 1}{n}$​$ to plug into the standard definition of an EWMA. The half-life (HL) is then given by:
+**Step 2:**  The authors chose $$S_k = (8, 16, 32)$$ and $$L_k = (24, 48, 96)$$.  Those numbers are not look-back days or half-life numbers. In fact, each number (let’s call it n) translates to a lambda decay factor ($$\lambda$$) to plug into the standard definition of an EWMA. The half-life (HL) is then given by:
 
 $$ 
 HL = \frac{\log(0.5)}{\log(\lambda)} = \frac{\log(0.5)}{\log\left(1 - \frac{1}{n}\right)}
