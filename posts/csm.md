@@ -57,6 +57,7 @@ $$
 $$
 z_k = \frac{y_k}{Run.StDev[y_k|SW]} 
 $$
+
 **Step 6:** We calculate an intermediate signal for each k=1,2,3 via a response function R:
    $$ 
  \begin{cases} u_k = R(z_k) \\ R(x) = \frac{\exp(-\frac{x^2}{2})}{0.89} \end{cases} 
