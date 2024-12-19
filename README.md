@@ -4,7 +4,7 @@
 
 I am a quantitative finance researcher and portfolio manager. 
 
-My areas of interest are the application of machine learning and neural networks in systematic trading and portfolio management, global macroeconomics, and factor investing.
+My areas of interest are the application of machine learning and neural networks in systematic trading, portfolio management, global macroeconomics, and factor investing.
 
 I hold an MBA with a major in Finance (Magna Cum Laude) from [EDHEC Busniess School](https://www.edhec.edu/en) and a B.A. in Economics from the [University of Haifa](https://www.haifa.ac.il/?lang=en). 
 
