@@ -2,7 +2,7 @@
 # Cross Sectional Momentum and Learning to Rank with LambdaMART
 In this post we will learn how algorithms that were originally developed to rank results from a search query can help us distinguish the winners and losers in our universe of investment assets. 
 
-There's the old joke that when your taxi driver tells you to buy a stock, you know it's time to sell. It points out to the fact that the diffusion-of, and investors' response-to new information often lags significant price moves. This rippled response in turn leads to auto-correlation of assets' returns and the persistence of a trend, be it up or down.
+There's the old joke that when your taxi driver tells you to buy a stock, you know it's time to sell. Whoever makes the recommendation will often point out to the stock's recent gains. It points out to the fact that the diffusion-of, and investors' response-to new information often lags significant price moves. This ripple effect in turn leads to auto-correlation of assets' returns and the persistence of a trend, be it up or down.
 
 The momentum effect in financial assets can be dated as far back as the Dutch merchant fleet in 1600s Amsterdam. Its existence is supported by the foundational economics theory of demand-and-supply and is a manifestation of a persistent deviation from market equilibrium. 
 
