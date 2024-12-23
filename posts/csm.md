@@ -80,6 +80,10 @@ macd = lambda S, L: data.Close.ewm(halflife=hl(S)).mean() -
 data.Close.ewm(halflife=hl(L)).mean()
 
 def CTA_momentum(s,l):
+	"""
+	Computes the signal as defined by Jamil Baz including the
+	interim signals for a given set of lambda decay factors
+	"""
 	phi = []
 	result = {}
 	for i in zip(s,l):
@@ -167,11 +171,11 @@ The reference benchmark models are:
 
 * Random (Rand) – This model select stocks at random, and is included to provide an absolute baseline sense of what the ranking measures might look like assuming portfolios are composed in such a manner.
 
-* Raw returns (JT) – Heuristics-based ranking tech- nique based on [4], which is one of the earliest works documenting the CSM strategy.
+* Raw returns (JT) – Heuristics-based ranking technique based on [4], which is one of the earliest works documenting the CSM strategy.
 
-* Volatility Normalised MACD (Baz) – Heuristics- based ranking technique with a relatively sophisti- cated trend estimator proposed by [3].
+* Volatility Normalised MACD (Baz) – Heuristics- based ranking technique with a relatively sophisticated trend estimator proposed by [3].
 
-* Multi-Layer Perceptron (MLP) – This model char- acterises the typical Regress-then-rank techniques used by contemporary methods.
+* Multi-Layer Perceptron (MLP) – This model characterizes the typical Regress-then-rank techniques used by contemporary methods.
 
 * RankNet (RNet) – Pairwise LTR model by [5]. 
 
@@ -184,6 +188,12 @@ The reference benchmark models are:
 The following performance metrics taken from the paper solidify the conclusion as it stands out tha **the LambdaMART algorithm achieved superior performance across all risk adjusted performance metrics** (Sharpe, MDD, Sortino, and Calmar).  Most noticeable is that this algorithm and method delivered an average Sharpe ratio greater than 2  while constraining the rebalance frequency to once per month. This is quite impressive considering that the test set includes the global financial crisis of 2007.
 ![Preformance Metrics. Source: Poh et al.](/images/csm2.png)
 
+## Conclusion
+Momentum is a powerful factor that we can harness to managing our investments and can in fact greatly compliment other factors such as value. We saw how algorithms from another domain can help us with the right methodology and clever predictors. 
+
+A big advantage of this framework is that we can further enhance the ranking accuracy and the financial performance by adding features. For example, relative strength metrics such as Jensen's alpha will provide the model more (or less) evidence for recent abnormal excess return of a given asset over its peers.  The peer group can be defined using the GICS system or with unsupervised learning clustering algorithms.
+
+Please don't hesitate to send any questions or suggestions you have. Thank you for reading!
 ___
 References:
 1. Burges, C (2010). From RankNet to LambdaRank to LambdaMART, Microsoft Research.
