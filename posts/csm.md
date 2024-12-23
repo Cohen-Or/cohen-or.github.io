@@ -116,20 +116,19 @@ y = pd.DataFrame({
 	})
 ```
 
-We'll perform a cross validation to find the best set of hyper parameters among those proposed in the research.
+We'll perform a grid search to find the best set of hyper parameters among those proposed in the research.
 ```python
 param_grid = {
 	'eta': [1, 1e-1, 1e-2, 1e-3, 1e-3, 1e-5, 1e-6],
 	'n_estimators': [5, 10, 20, 40, 80, 160, 320],
 	'max_depth': [2, 4, 6, 8, 10]
 	}
-param_combinations = [dict(
-	zip(param_grid.keys(), v)) for v in product(*param_grid.values()
-	)]
+param_combinations = [
+	dict(zip(param_grid.keys(), v)) for v in product(*param_grid.values())
+	]
 
 for params in param_combinations:
 	cv_scores = []
-	# Create base ranker with fixed parameters
 	ranker = xgb.XGBRanker(
 		objective='rank:pairwise',
 		eval_metric='ndcg',
@@ -139,7 +138,38 @@ for params in param_combinations:
 		n_estimators=params['n_estimators'],
 		device='cuda'
 		)	
+		
+	ranker.fit(
+		X_train, y_train, group=train_group_sizes,
+		eval_set=[(X_val, y_val)],
+		eval_group=[val_group_sizes],
+		verbose=False
+		)
 ```
+With the trained model we can generate monthly predictions and backtest the results to asses its performance.
+
+```python
+result = pd.DataFrame(
+	index= X_test.index,
+	data= ranker.predict(X_test.values), 
+	columns=['model_score'])
+result['predicted_rank']= result.groupby(level=0)['model_score']
+	.apply(lambda x: pd.qcut(x, q=10, labels=False, duplicates='drop')).values
+```
+
+## Evaluation
+In the research paper the LambdaMART algorithm was benchmarked with several ranking techniques and models and significantly outperformed. From the figure below we can clearly notice the advantage of the Learning to Rank methods (LMLE, LNet, LM, and RNet) over traditional ranking methods. 
+![Cumulative Returns. Source: Poh et al.](/images/csm1.png)
+The reference benchmark models are:
+1) Random (Rand) – This model select stocks at random, and is included to provide an absolute baseline sense of what the ranking measures might look like assuming portfolios are composed in such a manner.
+2) Raw returns (JT) – Heuristics-based ranking tech- nique based on [3], which is one of the earliest works documenting the CSM strategy.
+3) Volatility Normalised MACD (Baz) – Heuristics- based ranking technique with a relatively sophisti- cated trend estimator proposed by [3].
+4) Multi-Layer Perceptron (MLP) – This model char- acterises the typical Regress-then-rank techniques used by contemporary methods.
+5) RankNet (RNet) – Pairwise LTR model by [44]. 6) LambdaMART (LM) – Pairwise LTR model by [45]. 7) ListNet (LNet) – Listwise LTR model by [46].  
+8) ListMLE (LMLE) – Listwise LTR model by [39].
+
+The following performance metrics taken from the paper solidify the conclusion and show that the LambdaMART algorithm achieved superior performance across all risk adjusted metrics (Sharpe, MDD, Sortino, and Calmar).  The LM algorithm delivered an average Sharpe ratio greater than 2 with a model that constrained the rebalance frequency to once per month. This is quite impressive when considering that the test set included the global financial crisis of 2007.
+![Preformance Metrics. Source: Poh et al.](/images/csm2.png)
 
 ___
 References:
