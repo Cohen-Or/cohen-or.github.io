@@ -185,7 +185,7 @@ The reference benchmark models are:
 
 * ListMLE (LMLE) – Listwise LTR model by [7].
 
-The following performance metrics taken from the paper solidify the conclusion as it stands out tha **the LambdaMART algorithm achieved superior performance across all risk adjusted performance metrics** (Sharpe, MDD, Sortino, and Calmar).  Most noticeable is that this algorithm and method delivered an average Sharpe ratio greater than 2  while constraining the rebalance frequency to once per month. This is quite impressive considering that the test set includes the global financial crisis of 2007.
+The following performance metrics taken from the paper solidify the conclusion as it stands out tha **the LambdaMART algorithm achieved superior performance across all risk adjusted performance metrics** (Sharpe, MDD, Sortino, and Calmar).  Most noticeable is that this model delivered an average Sharpe ratio greater than 2  with a monthly rebalance frequency. This is quite impressive considering that the test set includes the global financial crisis of 2007.
 ![Preformance Metrics. Source: Poh et al.](/images/csm2.png)
 
 ## Conclusion
