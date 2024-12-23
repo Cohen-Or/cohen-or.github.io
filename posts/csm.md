@@ -185,7 +185,7 @@ The reference benchmark models are:
 
 * ListMLE (LMLE) – Listwise LTR model by [7].
 
-The following performance metrics taken from the paper solidify the conclusion as it stands out tha **the LambdaMART algorithm achieved superior performance across all risk adjusted performance metrics** (Sharpe, MDD, Sortino, and Calmar).  Most noticeable is that this model delivered an average Sharpe ratio greater than 2  with a monthly rebalance frequency. This is quite impressive considering that the test set includes the global financial crisis of 2007.
+The following performance metrics taken from the paper solidify the conclusion as it stands out tha **the LambdaMART algorithm achieved superior performance across all risk adjusted performance metrics** (Sharpe, MDD, Sortino, and Calmar).  Most noticeable is the average out-of-sample Sharpe ratio of ~2.1 that was acheived with a monthly rebalance frequency. This is quite impressive considering that the test set includes the global financial crisis of 2007.
 ![Preformance Metrics. Source: Poh et al.](/images/csm2.png)
 
 ## Conclusion
@@ -194,6 +194,7 @@ Momentum is a powerful factor that we can harness to managing our investments an
 A big advantage of this framework is that we can further enhance the ranking accuracy and the financial performance by adding features. For example, relative strength metrics such as Jensen's alpha will provide the model more (or less) evidence for recent abnormal excess return of a given asset over its peers.  The peer group can be defined using the GICS system or with unsupervised learning clustering algorithms.
 
 Please don't hesitate to send any questions or suggestions you have. Thank you for reading!
+
 ___
 References:
 1. Burges, C (2010). From RankNet to LambdaRank to LambdaMART, Microsoft Research.
