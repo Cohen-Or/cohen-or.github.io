@@ -99,7 +99,7 @@ raw_ret = lambda n: log_prices.resample('ME').last().diff(n)
 norm_ret = lambda n: log_prices.resample('ME').last().diff(n) / 
 	log_prices.diff().ewm(span=n*21).std().resample('ME').last() * np.sqrt(12/n)
 ```
-All together we get a matrix of 22 features for each stock and month. For the ranking objective the researchers we'll use the return achieved over the following month divided to deciles. Once we get the model ranks, at each rebalance point (end of each month) the assets at the top and bottom deciles will be added to the portfolio (long and short respectively) scaled by their 3 month exponentially weighted standard deviation. The target annualized  standard deviation $$\sigma_{tgt}$$  is set to 15%. 
+All together we get a matrix of 22 features for each stock and month. For the ranking objective we'll use the return achieved over the following month divided to deciles. After we train the model and get the predicted rankings, at each rebalance point (end of each month) the assets at the top and bottom deciles will be added to the portfolio (long and short respectively) scaled by their 3 month exponentially weighted standard deviation. The target annualized standard deviation $$\sigma_{tgt}$$  is set to 15%. Expressed formally:
 
 $$
 r^{CSM}_{\tau_m, \tau_{m+1}} = \frac{1}{n_{\tau_m}} \sum_{i=1}^{n_{\tau_m}} X_{\tau_m}^{(i)} \frac{\sigma_{tgt}}{\sigma_{\tau_m}^{(i)}} r_{\tau_m, \tau_{m+1}}^{(i)}
