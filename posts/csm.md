@@ -1,3 +1,4 @@
+[Or Cohen](/index.html)
 # Cross Sectional Momentum and Learning to Rank with LambdaMART
 In this post we will learn how algorithms that were originally developed to rank results from a search query can help us distinguish the winners and losers in our universe of investment assets. 
 
@@ -5,7 +6,7 @@ There's the old joke that when your taxi driver tells you to buy a stock, you kn
 
 The momentum effect in financial assets can be dated as far back as the Dutch merchant fleet in 1600s Amsterdam. Its existence is supported by the foundational economics theory of demand-and-supply and is a manifestation of a persistent deviation from market equilibrium. 
 
-> "An object in motion tends to stay in motion, an obaject at rest tends to remain at rest." – Sir Isaac Newton
+> "An object in motion tends to stay in motion, an object at rest tends to remain at rest." – Sir Isaac Newton
 
 Time series momentum (TSM) is identified by looking at the asset's price history, while cross-sectional momentum (CSM) is identified by benchmarking the assets performance over similar assets. Both can be observed over varying time horizons and both successfully capture risk premia, contrary to the efficient market hypothesis.
 
@@ -60,7 +61,7 @@ $$
 z_k = \frac{y_k}{Run.StDev[y_k|SW]} 
 $$
 
-*Step 5* We calculate an intermediate signal for each k=1,2,3 via a response function R:
+*Step 5:* We calculate an intermediate signal for each k=1,2,3 via a response function R:
 
    $$ 
  \begin{cases} u_k = R(z_k) \\ R(x) = \frac{x\exp(-\frac{x^2}{2})}{0.89} \end{cases} 
@@ -99,7 +100,10 @@ raw_ret = lambda n: log_prices.resample('ME').last().diff(n)
 norm_ret = lambda n: log_prices.resample('ME').last().diff(n) / 
 	log_prices.diff().ewm(span=n*21).std().resample('ME').last() * np.sqrt(12/n)
 ```
-All together we get a matrix of 22 features for each stock and month. For the ranking objective we'll use the return achieved over the following month divided to deciles. After we train the model and get the predicted rankings, at each rebalance point (end of each month) the assets at the top and bottom deciles will be added to the portfolio (long and short respectively) scaled by their 3 month exponentially weighted standard deviation. The target annualized standard deviation $$\sigma_{tgt}$$  is set to 15%. Expressed formally:
+All together we get a matrix of 22 features for each stock and month.We can visualize our model on a high level:
+![model schematic](csm3.png)
+
+For the ranking objective we'll use the return achieved over the following month divided to deciles. After we train the model and get the predicted rankings, at each rebalance point (end of each month) the assets at the top and bottom deciles will be added to the portfolio (long and short respectively) scaled by their 3 month exponentially weighted standard deviation. The target annualized standard deviation $$\sigma_{tgt}$$  is set to 15%. Expressed formally:
 
 $$
 r^{CSM}_{\tau_m, \tau_{m+1}} = \frac{1}{n_{\tau_m}} \sum_{i=1}^{n_{\tau_m}} X_{\tau_m}^{(i)} \frac{\sigma_{tgt}}{\sigma_{\tau_m}^{(i)}} r_{\tau_m, \tau_{m+1}}^{(i)}
@@ -156,23 +160,35 @@ result = pd.DataFrame(
 result['predicted_rank']= result.groupby(level=0)['model_score']
 	.apply(lambda x: pd.qcut(x, q=10, labels=False, duplicates='drop')).values
 ```
-
 ## Evaluation
-In the research paper the LambdaMART algorithm was benchmarked with several ranking techniques and models and significantly outperformed. From the figure below we can clearly notice the advantage of the Learning to Rank methods (LMLE, LNet, LM, and RNet) over traditional ranking methods. 
+In the research paper the LambdaMART algorithm was benchmarked with several ranking techniques and models and significantly outperformed. From the figure below which charts the cumulative returns we can clearly notice the advantage of the Learning to Rank methods (LMLE, LNet, LM, and RNet) over traditional ranking methods. 
 ![Cumulative Returns. Source: Poh et al.](/images/csm1.png)
 The reference benchmark models are:
-1) Random (Rand) – This model select stocks at random, and is included to provide an absolute baseline sense of what the ranking measures might look like assuming portfolios are composed in such a manner.
-2) Raw returns (JT) – Heuristics-based ranking tech- nique based on [3], which is one of the earliest works documenting the CSM strategy.
-3) Volatility Normalised MACD (Baz) – Heuristics- based ranking technique with a relatively sophisti- cated trend estimator proposed by [3].
-4) Multi-Layer Perceptron (MLP) – This model char- acterises the typical Regress-then-rank techniques used by contemporary methods.
-5) RankNet (RNet) – Pairwise LTR model by [44]. 6) LambdaMART (LM) – Pairwise LTR model by [45]. 7) ListNet (LNet) – Listwise LTR model by [46].  
-8) ListMLE (LMLE) – Listwise LTR model by [39].
 
-The following performance metrics taken from the paper solidify the conclusion and show that the LambdaMART algorithm achieved superior performance across all risk adjusted metrics (Sharpe, MDD, Sortino, and Calmar).  The LM algorithm delivered an average Sharpe ratio greater than 2 with a model that constrained the rebalance frequency to once per month. This is quite impressive when considering that the test set included the global financial crisis of 2007.
+* Random (Rand) – This model select stocks at random, and is included to provide an absolute baseline sense of what the ranking measures might look like assuming portfolios are composed in such a manner.
+
+* Raw returns (JT) – Heuristics-based ranking tech- nique based on [4], which is one of the earliest works documenting the CSM strategy.
+
+* Volatility Normalised MACD (Baz) – Heuristics- based ranking technique with a relatively sophisti- cated trend estimator proposed by [3].
+
+* Multi-Layer Perceptron (MLP) – This model char- acterises the typical Regress-then-rank techniques used by contemporary methods.
+
+* RankNet (RNet) – Pairwise LTR model by [5]. 
+
+* LambdaMART (LM) – Pairwise LTR model by [1]. 
+
+* ListNet (LNet) – Listwise LTR model by [6].  
+
+* ListMLE (LMLE) – Listwise LTR model by [7].
+
+The following performance metrics taken from the paper solidify the conclusion as it stands out tha **the LambdaMART algorithm achieved superior performance across all risk adjusted performance metrics** (Sharpe, MDD, Sortino, and Calmar).  Most noticeable is that this algorithm and method delivered an average Sharpe ratio greater than 2  while constraining the rebalance frequency to once per month. This is quite impressive considering that the test set includes the global financial crisis of 2007.
 ![Preformance Metrics. Source: Poh et al.](/images/csm2.png)
-
 ___
 References:
 1. Burges, C (2010). From RankNet to LambdaRank to LambdaMART, Microsoft Research.
 2. Poh, D (2020). Building Cross-Sectional Systematic Strategies By Learning to Rank, Oxford-Man Institute of Quantitative Finance.
 3. Baz, J. (2015). Dissecting Investment Strategies in the Cross Section and Time Series, SSRN Electronic Journal.
+4. Jegadeesh, N. (1993). Returns to Buying Winners and Selling Losers: Implications for Stock Market Efficiency, The Journal of Finance.
+5. Burges, C. (2005). Learning to rank using gradient descent, Proceedings of the 22nd International Conference on Machine Learning.
+6. Cao, Z. (2007). Learning to rank: From pairwise approach to listwise approach, Proceedings of the 24th International Conference on Machine Learning.
+7. Xia, F. (2008). Listwise approach to learning to rank: Theory and algorithm, Proceedings of the 25th International Conference on Machine Learning.
