@@ -191,7 +191,7 @@ The following performance metrics taken from [2] solidify the conclusion as it s
 ## Conclusion
 Momentum is a powerful factor that we can harness to managing our investments and can in fact greatly compliment other factors such as value. We saw how algorithms from another domain can help us with the right methodology and clever predictors. 
 
-A big advantage of this framework is that we can further enhance the ranking accuracy and the financial performance by adding features. For example, relative strength metrics such as Jensen's alpha will provide the model more (or less) evidence for recent abnormal excess return of a given asset over its peers.  The peer group can be defined using the GICS system or with unsupervised learning clustering algorithms.
+A big advantage of this framework is that we can further enhance the ranking accuracy and the financial performance by adding features. For example, relative strength metrics such as Jensen's alpha will provide the model more evidence to confirm or reject the exxistence of recent abnormal excess return of a given asset over its peers.  We can define peer groups using the GICS system or with unsupervised learning clustering algorithms.
 
 Please don't hesitate to send any questions or suggestions you have. Thank you for reading!
 
