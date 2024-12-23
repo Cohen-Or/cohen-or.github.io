@@ -101,7 +101,7 @@ norm_ret = lambda n: log_prices.resample('ME').last().diff(n) /
 	log_prices.diff().ewm(span=n*21).std().resample('ME').last() * np.sqrt(12/n)
 ```
 All together we get a matrix of 22 features for each stock and month.We can visualize our model on a high level:
-![model schematic](csm3.png)
+![model schematic](/images/csm3.png)
 
 For the ranking objective we'll use the return achieved over the following month divided to deciles. After we train the model and get the predicted rankings, at each rebalance point (end of each month) the assets at the top and bottom deciles will be added to the portfolio (long and short respectively) scaled by their 3 month exponentially weighted standard deviation. The target annualized standard deviation $$\sigma_{tgt}$$  is set to 15%. Expressed formally:
 
@@ -183,6 +183,7 @@ The reference benchmark models are:
 
 The following performance metrics taken from the paper solidify the conclusion as it stands out tha **the LambdaMART algorithm achieved superior performance across all risk adjusted performance metrics** (Sharpe, MDD, Sortino, and Calmar).  Most noticeable is that this algorithm and method delivered an average Sharpe ratio greater than 2  while constraining the rebalance frequency to once per month. This is quite impressive considering that the test set includes the global financial crisis of 2007.
 ![Preformance Metrics. Source: Poh et al.](/images/csm2.png)
+
 ___
 References:
 1. Burges, C (2010). From RankNet to LambdaRank to LambdaMART, Microsoft Research.
