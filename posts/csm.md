@@ -114,7 +114,7 @@ r^{CSM}_{\tau_m, \tau_{m+1}} = \frac{1}{n_{\tau_m}} \sum_{i=1}^{n_{\tau_m}} X_{\
 $$
 
 ```python
-forward_returns = log_prices.resample('ME').last().diff(1).shift(-1).stack()
+forward_returns = raw_ret(1).shift(-1).stack()
 y = pd.DataFrame({
 	'forward_return':forward_returns,
 	'decile':forward_returns.groupby(level=0) # group by month
@@ -191,7 +191,7 @@ The following performance metrics taken from [2] solidify the conclusion as it s
 ## Conclusion
 Momentum is a powerful factor that we can harness to managing our investments and can in fact greatly compliment other factors such as value. We saw how algorithms from another domain can help us with the right methodology and clever predictors. 
 
-A big advantage of this framework is that we can further enhance the ranking accuracy and the financial performance by adding features. For example, relative strength metrics such as Jensen's alpha will provide the model more evidence to confirm or reject the exxistence of recent abnormal excess return of a given asset over its peers.  We can define peer groups using the GICS system or with unsupervised learning clustering algorithms.
+A big advantage of this framework is that we can further enhance the ranking accuracy and the financial performance by adding features. For example, relative strength metrics such as Jensen's alpha will provide the model more evidence to confirm or reject the existence of recent abnormal excess return of a given asset over its peers.  We can define peer groups using the GICS system or with unsupervised learning clustering algorithms.
 
 Please don't hesitate to send any questions or suggestions you have. Thank you for reading!
 
