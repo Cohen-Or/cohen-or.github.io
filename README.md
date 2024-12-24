@@ -15,4 +15,4 @@ Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagay
 ## Writing
 ___
 
-* 2024-12-15 [Cross Sectional Momemntum with LambdaMART](/posts/csm.md)
+* 2024-12-15 [Cross Sectional Momentum with LambdaMART](/posts/csm.md)
