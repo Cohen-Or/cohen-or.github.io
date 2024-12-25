@@ -2,9 +2,9 @@
 # Change Point Detection with Statistical Jump Models
 In this post we will explore the benefits of identifying regimes in financial markets and learn how to statistically classify and predict change points in regimes. 
  
-The German philosopher Georg Hegel said, *"The only thing that we learn from history is that we learn nothing from history"*. A history of financial markets data can teach us a lot about common patterns that prevail in markets and help us better manage our risks and portfolios. 
+The German philosopher Georg Hegel said, *"The only thing that we learn from history is that we learn nothing from history"*. A valuable insight we can gain from studying the history of financial markets is the prevalence of common patterns that repeat in the evolvement of asset prices.
 
-Market regimes are clusters of persistent market conditions that affect the performance of different asset classes and relevance of investment factors. The change of these regimes is usually a result of a change in the macroeconomic environment, e.g. a change in inflation or unemployment levels.
+Market regimes are clusters of persistent conditions that affect the performance of different asset classes and the relevance of investment factors. The change of these regimes is usually a result of a change in the macroeconomic environment, e.g. a change in inflation or unemployment levels.
 
 Fundamental macro indicators are often discovered retrospectively while the dynamic nature of markets reflects the macro environment concurrently. Early change point detection (CPD) of market regime is a valuable input to strategic investment decisions such as asset allocation and the level of exposure to various investment factors.  However the stochastic nature of prices means that identifying a persistent change is a challenging task given the low signal to noise ratio.
 
@@ -26,13 +26,26 @@ An extension to the SJM learning approach in [1] is the Continuous Jump Model (C
 
 ![Continuous Statistical Jump Model](/images/sjm1.png)
 
-The figure above charts the probability of bull and bear regimes (in yellow) of the Nasdaq Index (in blue) from 1996 to 2005 as estimated by the discrete SJM and the extended CJM. While the discrete model identifies the dot-com crash as a single bear period, the continuous one is able to detect two rebound periods.
+The figure above charts the probability of bull and bear regimes (in yellow) of the Nasdaq Index (in blue) from 1996 to 2005 as estimated by the discrete SJM and the extended CJM. While the discrete model identifies the dot-com crash as a single bear period, the continuous one is able to detect two rebound periods with a smoothed transition.
 
 ## Integrating SJMs
-Alongside their scientific contribution with the novel approach to fitting HMMs, the research teams behind the two models also made an admirable contribution to the open-source community by providing [a well documented python library](https://github.com/Yizhan-Oliver-Shu/jump-models?tab=readme-ov-file) of SJMs. 
+Alongside their scientific contribution with the novel approach to fitting HMMs, the research teams behind the two models also made an admirable contribution to the open-source community by providing [a well documented python library](https://github.com/Yizhan-Oliver-Shu/jump-models?tab=readme-ov-file) of SJMs. Successful integration of the model to portfolio and risk management lies in fine-tuning the jump penalty parameter λ through cross-validation or a statistical criteria that (similar to a loss function).
 
-Successful integration of the model lies in fine-tuning the jump penalty parameter $$\lambda$$ through cross-validation or a statistical criteria that (similar to a loss function).
+```python
+jump_penalty=50.
+# initlalize a JM instance - set 'cont'= True for Continuous
+jm = JumpModel(n_components=2, jump_penalty=jump_penalty, cont=False)
+# fit data
+jm.fit(X_train_processed, log_ret, sort_by="cumret")
+# make online inference
+labels_test_online = jm.predict_online(X_test_processed)
+```
+The hyperparameter λ serves as a control parameter for the fixed-cost regularization term associated with transitions between different states. Its value reflects our prior assumptions about the frequency of state transitions. 
 
+When λ is set to zero, the jump model becomes the K-means algorithm which does not take the temporal order into account. As we increase the value of λ, the number of state transitions decreases. 
+
+In the next post we will see how the insights from this model can greatly improve the Mean-Variance asset allocation method. As always, please don't hesitate to send any questions or suggestions you have. 
+Thank you for reading!
 ___
 References:
 1.  Nystrup, P. (2020). Learning hidden Markov models with persistent states by penalizing jumps, Expert Systems with Applications.
