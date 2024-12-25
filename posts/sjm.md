@@ -33,7 +33,7 @@ Alongside their scientific contribution with the novel approach to fitting HMMs,
 
 ```python
 jump_penalty=50.
-# initlalize a JM instance - set 'cont'= True for Continuous
+# initlalize a JM instance (set the arg cont=True for CJM)
 jm = JumpModel(n_components=2, jump_penalty=jump_penalty, cont=False)
 # fit data
 jm.fit(X_train_processed, log_ret, sort_by="cumret")
@@ -46,6 +46,7 @@ When λ is set to zero, the jump model becomes the K-means algorithm which does 
 
 In the next post we will see how the insights from this model can greatly improve the Mean-Variance asset allocation method. As always, please don't hesitate to send any questions or suggestions you have. 
 Thank you for reading!
+
 ___
 References:
 1.  Nystrup, P. (2020). Learning hidden Markov models with persistent states by penalizing jumps, Expert Systems with Applications.
