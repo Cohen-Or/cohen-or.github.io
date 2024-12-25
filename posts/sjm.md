@@ -1,4 +1,5 @@
 [Or Cohen](/index.html)
+
 # Change Point Detection with Statistical Jump Models
 In this post we will explore the benefits of identifying regimes in financial markets and learn how to statistically classify and predict change points in regimes. 
  
