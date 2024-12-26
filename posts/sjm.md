@@ -53,7 +53,7 @@ When λ is set to zero, the jump model becomes the K-means algorithm which does 
 ![S&P SJM in-sample](/images/sjm6.png)
 
 ## Conclusion
-Time series clustering is a powerful technique for analyzing temporal data that we can use to adapt out strategies to the changing dynamics in financial markets. In the next post we will build upon this knowledge and learn how to improve our strategic asset allocation based on the information this models provide us.
+Time series clustering is a powerful technique for analyzing temporal data that we can use to adapt out strategies to the changing dynamics in financial markets. In the next post we will build upon this knowledge and learn how to improve our strategic asset allocation based on the information the SJMs provide us.
 
 ___
 References:
