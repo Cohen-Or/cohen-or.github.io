@@ -45,11 +45,12 @@ jm.fit(X_train_processed, log_ret, sort_by="cumret")
 labels_test_online = jm.predict_online(X_test_processed)
 ```
 When λ is set to zero, the jump model becomes the K-means algorithm which does not take the temporal order into account. As we increase the value of λ, the number of state transitions decreases. In the figure below we can see the in-sample fitted regimes by the model on the S&P500 index between 2005-2019. 
+
 ![S&P SJM in-sample](/images/sjm2.png)
-[S&P SJM in-sample](/images/sjm3.png)
-[S&P SJM in-sample](/images/sjm4.png)
-[S&P SJM in-sample](/images/sjm5.png)
-[S&P SJM in-sample](/images/sjm6.png)
+![S&P SJM in-sample](/images/sjm3.png)
+![S&P SJM in-sample](/images/sjm4.png)
+![S&P SJM in-sample](/images/sjm5.png)
+![S&P SJM in-sample](/images/sjm6.png)
 
 ## Conclusion
 
