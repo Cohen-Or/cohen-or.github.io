@@ -20,7 +20,7 @@ We know that market regimes are clusters of persistent conditions that are not d
 
 A Markov process is a random process in which the future is independent of the past, given the present. In the case of a discrete state the Markov processes are known as Markov chains. In an HMM, the probability distribution that generates an observation depends on the state of an unobserved Markov chain. 
 
-The application of HMMs for CPD is prone to several errors that stem from the challenge in correctly specifying it and result in unstable and impersistent estimates of the underlying state sequence. Statistical Jump Model [1] (SJM) is a novel approach for the learning of HMMs and is particularly interesting due to its interpretability and ability to control the state transition rate via a regularization factor λ. 
+The application of HMMs for CPD is prone to several errors that stem from the challenge in correctly specifying them and result in unstable and impersistent estimates of the underlying state sequence. Statistical Jump Model [1] (SJM) is a novel approach for the learning HMM's parameters and is particularly interesting due to its interpretability and ability to control the state transition rate via a regularization factor λ. 
 
 The advantage of controlling the state transition rate when incorporating HMMs in our investment strategies lies in the need to balance the turnover rate in order to maximize the risk adjusted return and reduce the transactions costs associated with high turnover. In the absence of ground truth for the labeling of the hidden states, we can use our knowledge of investment strategies as a feedback for the model. 
 
@@ -33,7 +33,7 @@ The figure above charts the probability of bull and bear regimes (in yellow) of 
 ## Tuning SJMs
 Alongside the scientific contribution, the research teams behind the two models also contributed to the open-source community by providing [a well documented python library](https://github.com/Yizhan-Oliver-Shu/jump-models?tab=readme-ov-file) of SJMs. The key to successful integration of the model to portfolio and risk management lies in fine-tuning the jump penalty parameter λ through cross-validation or a statistical criteria (similar to a loss function).
 
-This  hyperparameter serves as a control parameter for the fixed-cost regularization term associated with transitions between different states. Its value reflects our prior assumptions about the frequency of state transitions.
+This hyperparameter serves as a control parameter for the fixed-cost regularization term associated with transitions between different states. Its value reflects our prior assumptions about the frequency of state transitions.
 
 ```python
 jump_penalty=50
@@ -44,7 +44,7 @@ jm.fit(X_train_processed, log_ret, sort_by="cumret")
 # Make online inference
 labels_test_online = jm.predict_online(X_test_processed)
 ```
-When λ is set to zero, the jump model becomes the K-means algorithm which does not take the temporal order into account. As we increase the value of λ, the number of state transitions decreases. In the figures below we can see the difference between in-sample fitted regimes by the model on the S&P500 index between 2005-2019 for λ values 10, 30, 50, 70, 90. 
+When λ is set to zero, the jump model becomes the K-means algorithm which does not take the temporal order into account. As we increase the value of λ, the number of state transitions decreases. In the plots below we can see the difference between in-sample fitted regimes by the model on the S&P500 index between 2005-2019 for λ values 10, 30, 50, 70, 90. 
 
 ![S&P SJM in-sample](/images/sjm2.png)
 ![S&P SJM in-sample](/images/sjm3.png)
@@ -53,8 +53,7 @@ When λ is set to zero, the jump model becomes the K-means algorithm which does 
 ![S&P SJM in-sample](/images/sjm6.png)
 
 ## Conclusion
-
-In the next post we will learn how to tune this parameter through cross-validation and using the trained model to inform our asset allocation strategy.
+Time series clustering is a powerful technique for analyzing temporal data that we can use to adapt out strategies to the changing dynamics in financial markets. In the next post we will build upon this knowledge and learn how to improve our strategic asset allocation based on the information this models provide us.
 
 ___
 References:
