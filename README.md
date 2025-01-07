@@ -14,6 +14,8 @@ Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagay
 
 ## Writing
 ___
+* 2025-01-08 [Regime Based Strategic Asset Allocation - Part 1](/posts/rsaa1.md)
+  
 * 2024-12-25 [Change Point Detection with Statistical Jump Models](/posts/sjm.md)
   
 * 2024-12-15 [Cross Sectional Momentum with LambdaMART](/posts/csm.md)
