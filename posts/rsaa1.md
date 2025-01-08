@@ -150,7 +150,7 @@ Source: [1]
 Note: A one-way transaction cost of 5 basis points was applied. 
 
 ## Midpoint Conclusion
-It stands out from comparing the outcomes of the JM-XGB model with the simple 0/1 strategy that market regime forecasts are financially significant. More specifically, the lower maximum drawdown across all asset classes prove its ability to mitigate the downside risk.
+The outcomes in the table above prove the power of incorporating market regimes in our risk and portfolio management, even when used only as a simple kill switch (0/1 strategy). It is particularly effective for mitigating the downside risk as evident by the lower maximum drawdown across all asset classes.  
 
 In the next post we will see how we can incorporate the regime forecasts in our portfolio management and discover the benefits of that.
 
