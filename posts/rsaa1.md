@@ -135,6 +135,7 @@ In addition, this way of linking the classification and forecasting achieves a s
 ![LargeCap Wealth Curve](/images/rsaa1.png)
 ![REIT Wealth Curve](/images/rsaa2.png)
 ![AggBond Wealth Curve](/images/rsaa3.png)
+Source: [1]
 
 A birds eye-view of all three proves that the optimized market regime forecasts are distinct to each asset class and hence a tailored model for each is preferable. For instance the early impact that the subprime mortgage crisis had on REITs is reflected in the earlier bearish regime forecast for REITs compared to LargeCaps.
 
@@ -145,7 +146,8 @@ One noticeable challenge for the model is evident by the bearish forecasts for A
 Another challenge, that in a way is here to stay, is the delay of forecasts evident by several bear regime forecasts that lagged significant drops; for example during the 2015-2016 market selloff for LargeCaps as result of Brexit, the Greek debt default and the Chinese stock market turmoil. Still, until we find that crystal ball, this model proves significantly better than the buy-and-hold strategy.
 
 ![Performance benchmarks](/images/rsaa4.png)
-Note: A one-way transaction cost of 5 basis points was applied.
+Source: [1]
+Note: A one-way transaction cost of 5 basis points was applied. 
 
 ## Midpoint Conclusion
 It stands out from comparing the outcomes of the JM-XGB model with the simple 0/1 strategy that market regime forecasts are financially significant. More specifically, the lower maximum drawdown across all asset classes prove its ability to mitigate the downside risk.
