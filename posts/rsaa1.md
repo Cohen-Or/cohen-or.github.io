@@ -117,7 +117,7 @@ def algorithm2(jump_penalties, test_start, test_end, asset_returns):
 					regime_preds == 1,
 					risk_free_rate.loc[cv_window],
 					asset_returns.loc[cv_window]
-								)
+					)
 			# calculate the Sharpe ratio
 			sharpe_per_jp[jump_penalty] = zo_strategy.mean() / zo_strategy.std()
 		# save the jump penalty that maximized Sharpe during the cv period
