@@ -114,9 +114,9 @@ def algorithm2(jump_penalties, test_start, test_end, asset_returns):
 			regime_preds = algorithm1(X1, X2, cv_start, cv_end)
 			# apply the 0/1 strategy based on the predicted regimes
 			zo_strategy = np.where(
-								regime_preds == 1,
-								risk_free_rate.loc[cv_window],
-								asset_returns.loc[cv_window]
+					regime_preds == 1,
+					risk_free_rate.loc[cv_window],
+					asset_returns.loc[cv_window]
 								)
 			# calculate the Sharpe ratio
 			sharpe_per_jp[jump_penalty] = zo_strategy.mean() / zo_strategy.std()
