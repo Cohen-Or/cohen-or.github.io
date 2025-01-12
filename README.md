@@ -10,12 +10,14 @@ I hold an MBA with a major in Finance (Magna Cum Laude) from [EDHEC Busniess Sch
 
 Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagaya](pagaya.com) and [Bank Leumi](https://english.leumi.co.il/WnnnWn/Company_Profile/38044/). 
 
-[Email](mailto:or.cohen5@gmail.com) / [Linkedin](https://www.linkedin.com/in/or-cohen/) / [Github](https://github.com/Cohen-Or)
+[Email](mailto:or.cohen@edhec.com) / [Linkedin](https://www.linkedin.com/in/or-cohen/) / [Github](https://github.com/Cohen-Or)
 
 ## Writing
 ___
-* 2025-01-08 [Regime Based Dynamic Asset Allocation - Part 1](/posts/rsaa1.md)
+* 2025-01-08 [Regime Based Dynamic Asset Allocation - Part 2](/posts/rsaa2.md)
+
+* 2025-01-02 [Regime Based Dynamic Asset Allocation - Part 1](/posts/rsaa1.md)
   
-* 2024-12-25 [Change Point Detection with Statistical Jump Models](/posts/sjm.md)
+* 2024-12-08 [Change Point Detection with Statistical Jump Models](/posts/sjm.md)
   
-* 2024-12-15 [Cross Sectional Momentum with LambdaMART](/posts/csm.md)
+* 2024-11-12 [Cross Sectional Momentum with LambdaMART](/posts/csm.md)
