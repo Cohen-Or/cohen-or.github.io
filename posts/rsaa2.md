@@ -48,7 +48,7 @@ $$
 \mathbf{w} \geq 0 \quad \text{(Long-only)}
 $$
 
-To solve this, we can use quadratic programming or other numerical optimization techniques. The resulting portfolio weights $\mathbf{w}^*$ are those that maximize the objective function while satisfying the constraints. The optimal portfolio is determined by balancing the return and risk objectives, with the risk-aversion parameter $\lambda$ controlling the degree of risk tolerance.
+To solve this, we can use quadratic programming or other numerical optimization techniques. The resulting portfolio weights $$\mathbf{w}^*$$ are those that maximize the objective function while satisfying the constraints. The optimal portfolio is determined by balancing the return and risk objectives, with the risk-aversion parameter $$\lambda$$ controlling the degree of risk tolerance.
 
 ### Putting the theory into practice
 Markowitz acknowledged the challenge of accurately forecasting the returns of investment assets and recognized the need to incorporate additional methods and judgement in order to successfully implement his framework. The concept is brilliant but like with many things in life, the proof is in the pudding. More accurate forecasts will enhance our investment performance and vice versa. 
@@ -64,7 +64,7 @@ import pypof
 # exponentially weighted moving covariance matrix with a 252-day halflife
 cov_matrix = pypfopt.risk_models.exp_cov(prices, span=252, frequency=252, log_returns=True)
 # in-sample expected returns for the forthcoming predicted regime
-expected_returns = JM_XGB.expected_returns
+expected_returns = JmXgbRegime.expected_returns
 # construct efficient frontier model with 40% upper bound
 ef = pypfopt.EfficientFrontier(expected_returns, cov_matrix, bounds=0.4)
 # add 1% broker commission
@@ -75,12 +75,27 @@ weights = ef.max_quadratic_utility(risk_aversion=10)
 ef.portfolio_performance(verbose=True)
 ```
 
-We can follow the article setup as demonstrated in the code above or specify our target risk or target return with the ``efficient_risk`` and ``efficient_return`` functions. The library also allows more advanced optimization models, for example optimizing along the efficient mean-semivariance frontier which instead of penalising volatility seeks to only penalise downside volatility. We can use its visualization functions to plot the efficient frontier and random portfolios.
+We can follow the article setup as demonstrated in the code above or specify our target risk or target return with the ``efficient_risk`` and ``efficient_return`` functions. For reproducibility purposes I wrapped the framework detailed in the previous post within a python class ``JmXgbRegime`` that upon fitting to historic data provides the expected returns given its prediction for the forthcoming market regime for each asset class. 
+
+PyPortfolioOpt also provides more advanced optimization models, for example optimizing along the efficient mean-semivariance frontier which instead of penalising volatility seeks to only penalise downside volatility. The visualization functions are useful for plotting the covariance matrix, portfolio weights or the efficient frontier with simple interface.
 
 ![Efficient Frontier Plot](rsaa5.png)
 
-## Outcomes
+## Backtest Results
+To evaluate the added value of incorporating the market regime signal in the asset allocation decision process, the researches compared the performance of three allocation methods both with and without the regime signals. The table below lists the annualized performance metrics for each method tested on a 16-year period (2007-2023). A 60/40 allocation between equity, real-estate, high-yield and commodities (60) and the three-bonds indexes (40) was added as a benchmark. 
 
+![annualized performance comparison](/images/rsaa6.png)
+
+Evidently, the market regimes signal improved every allocation method and generated higher returns with lower downside risk. This dual sided improvement highlights the appeal of this framework to a wide range of investors with different risk aversion characteristics and investment objectives. The wealth curves below showcase the consistent outperformance of the enhanced asset allocation version of all methods.
+
+![wealtch curve](/images/rsaa7.png)
+![wealtch curve](/images/rsaa8.png)
+![wealtch curve](/images/rsaa9.png)
+
+## Conclusion
+
+Diversification is known to be the only free-lunch in investing and the corner-stone of sound portfolio management. The effect of an adaptable approach to asset allocation is substantial yet largely dependent on the portfolio manager's ability to form accurate return expectations for every asset class. With thorough analysis, intelligent selection of input features and clever use of state-of-the-art models we can develop good predictions and enrich our asset allocation framework. 
+As always, please don't hesitate to send me any feedback, questions or suggestions you have!
 ___
 References:
 1. Markowitz, H.M. (1952). Portfolio Selection, _The Journal of Finance_.
