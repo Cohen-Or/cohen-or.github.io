@@ -3,7 +3,7 @@
 
 Following the [previous post](posts/rsaa1.html), in this post we will learn how to incorporate regime predictions in our portfolio optimization models.
 
-One common joke around statisticians is that if your feet are in the oven and your head is in the freezer, on average, your body is fine. When it comes to portfolio management though, the variation of returns is as important as the average. This is the core principal that guided 24 years old Harry Markowitz in deriving his Mean-Variance analysis, that was originally introduced in 1952 [1] and was since adopted by the vast majority of portfolio managers.
+One common joke around statisticians is that if your feet are in the oven and your head is in the freezer, on average, your body is fine. When it comes to portfolio management though, the variation of returns is as important as the average; This is the core principal that guided 24 years old Harry Markowitz in deriving his Mean-Variance analysis, that was originally introduced in 1952 [1] and was since adopted by the vast majority of portfolio managers.
 
 In essence, Markowitz devised an approach to portfolio selection that comprised two stages, forecasting and optimization, and identified the variance of returns as a critical measure of portfolio risk. His pioneering research established the foundation for understanding the power of diversification through the covariance between assets.
 
@@ -16,9 +16,9 @@ In its original setup, the MVO formulation is as follows:
 - $$\mathbf{r} = [r_1, r_2, \dots, r_n]^\top$$ is the vector of expected returns for each asset,
 - $$\Sigma$$ is the covariance matrix of asset returns, where $$\Sigma_{ij}$$ is the covariance between asset $$i$$ and asset $$j$$,
 - $$\mathbf{w} = [w_1, w_2, \dots, w_n]^\top$$ is the vector of portfolio weights (fractions of total capital invested in each asset),
-- $$\mathbf{1}$$ is a vector of ones (dimension $n$).
+- $$\mathbf{1}$$ is a vector of ones (dimension $$n$$).
 
-The objective is to maximize the expected return for a given level of risk $\sigma_{target}$ , or equivalently, minimize risk for a given expected return $r_{target}$. The expected portfolio return is given by:
+The objective is to maximize the expected return for a given level of risk $$\sigma_{target}$$ , or equivalently, minimize risk for a given expected return $$r_{target}$$. The expected portfolio return is given by:
 
 $$
 R_p = \mathbf{w}^\top \mathbf{r}
