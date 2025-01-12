@@ -79,7 +79,7 @@ We can follow the article setup as demonstrated in the code above or specify our
 
 PyPortfolioOpt also provides more advanced optimization models, for example optimizing along the efficient mean-semivariance frontier which instead of penalising volatility seeks to only penalise downside volatility. The visualization functions are useful for plotting the covariance matrix, portfolio weights or the efficient frontier with simple interface.
 
-![Efficient Frontier Plot](rsaa5.png)
+![Efficient Frontier Plot](/images/rsaa5.png)
 
 ## Backtest Results
 To evaluate the added value of incorporating the market regime signal in the asset allocation decision process, the researches compared the performance of three allocation methods both with and without the regime signals. The table below lists the annualized performance metrics for each method tested on a 16-year period (2007-2023). A 60/40 allocation between equity, real-estate, high-yield and commodities (60) and the three-bonds indexes (40) was added as a benchmark. 
