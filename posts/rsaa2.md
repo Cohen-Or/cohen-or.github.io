@@ -96,6 +96,7 @@ Evidently, the market regimes signal improved every allocation method and genera
 
 Diversification is known to be the only free-lunch in investing and the corner-stone of sound portfolio management. The effect of an adaptable approach to asset allocation is substantial yet largely dependent on the portfolio manager's ability to form accurate return expectations for every asset class. With thorough analysis, intelligent selection of input features and clever use of state-of-the-art models we can develop good predictions and enrich our asset allocation framework. 
 As always, please don't hesitate to send me any feedback, questions or suggestions you have!
+
 ___
 References:
 1. Markowitz, H.M. (1952). Portfolio Selection, _The Journal of Finance_.
