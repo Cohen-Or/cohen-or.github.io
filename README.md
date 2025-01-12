@@ -14,7 +14,7 @@ Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagay
 
 ## Writing
 ___
-* 2025-01-08 [Regime Based Dynamic Asset Allocation - Part 2](/posts/rsaa2.md)
+* 2025-01-15 [Regime Based Dynamic Asset Allocation - Part 2](/posts/rsaa2.md)
 
 * 2025-01-02 [Regime Based Dynamic Asset Allocation - Part 1](/posts/rsaa1.md)
   
