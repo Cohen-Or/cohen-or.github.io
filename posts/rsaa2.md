@@ -13,10 +13,10 @@ Mean Variance Optimization (MVO) provides us with the optimal weight for every a
 
 In its original setup, the MVO formulation is as follows:
 
-- $\mathbf{r} = [r_1, r_2, \dots, r_n]^\top$ is the vector of expected returns for each asset,
-- $\Sigma$ is the covariance matrix of asset returns, where $\Sigma_{ij}$ is the covariance between asset $i$ and asset $j$,
-- $\mathbf{w} = [w_1, w_2, \dots, w_n]^\top$ is the vector of portfolio weights (fractions of total capital invested in each asset),
-- $\mathbf{1}$ is a vector of ones (dimension $n$).
+- $$\mathbf{r} = [r_1, r_2, \dots, r_n]^\top$$ is the vector of expected returns for each asset,
+- $$\Sigma$$ is the covariance matrix of asset returns, where $$\Sigma_{ij}$$ is the covariance between asset $$i$$ and asset $$j$$,
+- $$\mathbf{w} = [w_1, w_2, \dots, w_n]^\top$$ is the vector of portfolio weights (fractions of total capital invested in each asset),
+- $$\mathbf{1}$$ is a vector of ones (dimension $n$).
 
 The objective is to maximize the expected return for a given level of risk $\sigma_{target}$ , or equivalently, minimize risk for a given expected return $r_{target}$. The expected portfolio return is given by:
 
@@ -36,13 +36,14 @@ $$
 \text{Maximize} \quad \mathbf{w}^\top \mathbf{r} - \frac{\lambda}{2} \mathbf{w}^\top \Sigma \mathbf{w}
 $$
 
-Where $\lambda$ is a risk-aversion parameter that controls the trade-off between expected return and risk (_note that it is not the same variable we used for jump penalty_). A higher value of $\lambda$ results in a more risk-averse portfolio.
+Where $$\lambda$$ is a risk-aversion parameter that controls the trade-off between expected return and risk (_note that it is not the same variable we used for jump penalty_). A higher value of $$\lambda$$ results in a more risk-averse portfolio.
 
 In [1] the long-only and fully invested constraints were included which are defined formally as:
 
 $$
 \mathbf{w}^\top \mathbf{1} = 1 \quad \text{(Fully-invested)}
 $$
+
 $$
 \mathbf{w} \geq 0 \quad \text{(Long-only)}
 $$
