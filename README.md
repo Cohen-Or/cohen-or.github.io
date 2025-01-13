@@ -15,12 +15,10 @@ Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagay
 ## Writing
 ___
 
-Analysis and implementation of quantative research studies in Python:
-
 * 2025-01-15 [Regime Based Dynamic Asset Allocation - Part 2](/posts/rsaa2.md)
 
 * 2025-01-02 [Regime Based Dynamic Asset Allocation - Part 1](/posts/rsaa1.md)
   
-* 2024-12-08 Change Point Detection with Statistical Jump Models [Post](/posts/sjm.md)
+* 2024-12-08 [Change Point Detection with Statistical Jump Models](/posts/sjm.md)
   
-* 2024-11-12 Cross Sectional Momentum with LambdaMART [Post](/posts/csm.md) [Reserach Paper](https://www.pm-research.com/content/iijjfds/3/2/70)
+* 2024-11-12 [Cross Sectional Momentum with LambdaMART](/posts/csm.md)
