@@ -1,6 +1,6 @@
 [Or Cohen](/index.html)
 # Cross Sectional Momentum and Learning to Rank with LambdaMART
-In this post we will learn how algorithms that were originally developed to rank results from a search query can help us distinguish the winners and losers in our universe of investment assets. 
+In this post we will learn how algorithms that were originally developed to rank results from a search query can help us distinguish the winners and losers in our investment selection. 
 
 There's the old joke that when your taxi driver tells you to buy a stock, you know it's time to sell. It points out to the fact that the diffusion-of, and investors' response-to new information often lags significant price moves. This ripple effect in investors reaction leads to auto-correlation of assets' returns and the persistence of a trend, be it up or down.
 
@@ -19,16 +19,16 @@ Like any trading strategy, momentum strategies have unique risks and overlooking
  The ever rising amounts of digital data and the need to effectively search through it have led to significant progress in a family of algorithms in the domain of Information Retrieval that are known as Learning to Rank or **machine-learned ranking (MLR)**. These algorithms provide in response to a query a ranking of the results based on some metric of relevance.   
 ![Learning to Rank](https://www.elastic.co/guide/en/elasticsearch/reference/current/images/search/learning-to-rank-overview.png)
 
-**LambdaMART** is a state-of-the-art MLR model developed by Christopher J.C. Burges and his colleagues at Microsoft Research[1]. Under the hood, the ranking task is transformed into a pairwise classification or regression problem. That means you look at pairs of items at a time, come up with the optimal ordering for that pair of items, and then use it to come up with the final ranking for all the results. 
+**LambdaMART** is a state-of-the-art MLR model developed by Christopher J.C. Burges and his colleagues at Microsoft Research [1]. Under the hood, the ranking task is transformed into a pairwise classification or regression problem. That means you look at pairs of items at a time, come up with the optimal ordering for that pair of items, and then use it to come up with the final ranking for all the results. 
 
 Like a good yogi, LambdaMART is both powerful and flexible, making it the go-to choice for a wide range of problems. For example, for ranked search results we can optimize it for precision in order to get only the most relevant results. In the case of CSM, we are interested in better predictions across the entire spectrum so maximizing a ranking-specific evaluation metric, such as **NDCG** (Normalized Discounted Cumulative Gain) will be a better fit.
 
 **MART** stands for Multiple Additive Regression Trees which means the algorithm uses gradient boosting with decision tress. Boosting trees are built iteratively, where each tree corrects the errors of the previous ones with the goal of optimizing ranking metrics like NDCG or Mean Reciprocal Rank (MRR).
 
 ## Leveraging MLR for CSM
-The advantage of these new MLR techniques in CSM and other financial applications stems from the fact that they circumvent the need to use a regression or classification loss functions and address the ranking quality directly. 
+The advantage of these new MLR techniques in CSM and other financial applications stems from the fact that they circumvent the need to use a regression or classification loss functions for returns and address the ranking task directly. 
 
-The research by Poh et. al [2] introduces a novel framework for using MLR to construct CSM portfolios and demonstrated the dramatic improvements in performance over other techniques of ranking momentum in financial assets. 
+The research by Poh et. al [2] introduces a novel framework for using MLR to construct CSM portfolios and demonstrates the dramatic improvements in performance over other techniques of ranking momentum in financial assets. 
 
 The proposed framework uses momentum indicators that are derived from historic daily prices of the past 3 to 12-months periods. These predictors are used to predict the one-month ahead winners and losers. One of these predictors is a sophisticated version of the MACD momentum indicator termed CTA Momentum that was originally introduced in [3]. 
 
@@ -104,7 +104,7 @@ raw_ret = lambda n: log_prices.resample('ME').last().diff(n)
 norm_ret = lambda n: log_prices.resample('ME').last().diff(n) / 
 	log_prices.diff().ewm(span=n*21).std().resample('ME').last() * np.sqrt(12/n)
 ```
-All together we get a matrix of 22 features for each stock and month.We can visualize our model on a high level:
+All together we get a matrix of 22 features for each stock and month. On a high level this is the process we preform at every rebalance point (month end) :
 ![model schematic](/images/csm3.png)
 
 For the ranking objective we'll use the return achieved over the following month divided to deciles. After we train the model and get the predicted rankings, at each rebalance point (end of each month) the assets at the top and bottom deciles will be added to the portfolio (long and short respectively) scaled by their 3 month exponentially weighted standard deviation. The target annualized standard deviation $$\sigma_{tgt}$$  is set to 15%. Expressed formally:
@@ -165,7 +165,7 @@ result['predicted_rank']= result.groupby(level=0)['model_score']
 	.apply(lambda x: pd.qcut(x, q=10, labels=False, duplicates='drop')).values
 ```
 ## Evaluation
-In the research paperv[2] the LambdaMART algorithm was benchmarked with several ranking techniques and models and significantly outperformed. From the figure below which charts the cumulative returns we can clearly notice the advantage of the Learning to Rank methods (LMLE, LNet, LM, and RNet) over traditional ranking methods. 
+In the research [2] the LambdaMART algorithm was benchmarked with several ranking techniques and models and significantly outperformed. From the figure below which charts the cumulative returns we can clearly notice the advantage of the Learning to Rank methods (LMLE, LNet, LM, and RNet) over traditional ranking methods. 
 ![Cumulative Returns. Source: Poh et al.](/images/csm1.png)
 The reference benchmark models are:
 
@@ -191,16 +191,16 @@ The following performance metrics taken from [2] solidify the conclusion as it s
 ## Conclusion
 Momentum is a powerful factor that we can harness to managing our investments and can in fact greatly compliment other factors such as value. We saw how algorithms from another domain can help us with the right methodology and clever predictors. 
 
-A big advantage of this framework is that we can further enhance the ranking accuracy and the financial performance by adding features. For example, relative strength metrics such as Jensen's alpha will provide the model more evidence to confirm or reject the existence of recent abnormal excess return of a given asset over its peers.  We can define peer groups using the GICS system or with unsupervised learning clustering algorithms.
+We can further enhance the ranking accuracy and the financial performance by adding features. For example, relative strength metrics such as Jensen's alpha will provide the model more (or less) evidence for recent abnormal excess return of a given asset over its peers.  
 
 Please don't hesitate to send any questions or suggestions you have. Thank you for reading!
 
 ___
 References:
-1. Burges, C (2010). From RankNet to LambdaRank to LambdaMART, Microsoft Research.
-2. Poh, D (2020). Building Cross-Sectional Systematic Strategies By Learning to Rank, Oxford-Man Institute of Quantitative Finance.
-3. Baz, J. (2015). Dissecting Investment Strategies in the Cross Section and Time Series, SSRN Electronic Journal.
-4. Jegadeesh, N. (1993). Returns to Buying Winners and Selling Losers: Implications for Stock Market Efficiency, The Journal of Finance.
-5. Burges, C. (2005). Learning to rank using gradient descent, Proceedings of the 22nd International Conference on Machine Learning.
-6. Cao, Z. (2007). Learning to rank: From pairwise approach to listwise approach, Proceedings of the 24th International Conference on Machine Learning.
-7. Xia, F. (2008). Listwise approach to learning to rank: Theory and algorithm, Proceedings of the 25th International Conference on Machine Learning.
+1. Burges, C (2010). From RankNet to LambdaRank to LambdaMART, _Microsoft Research_.
+2. Poh, D (2020). Building Cross-Sectional Systematic Strategies By Learning to Rank, _Oxford-Man Institute of Quantitative Finance_.
+3. Baz, J. (2015). Dissecting Investment Strategies in the Cross Section and Time Series, _SSRN Electronic Journal_.
+4. Jegadeesh, N. (1993). Returns to Buying Winners and Selling Losers: Implications for Stock Market Efficiency, _The Journal of Finance._
+5. Burges, C. (2005). Learning to rank using gradient descent, _Proceedings of the 22nd International Conference on Machine Learning._
+6. Cao, Z. (2007). Learning to rank: From pairwise approach to listwise approach, _Proceedings of the 24th International Conference on Machine Learning._
+7. Xia, F. (2008). Listwise approach to learning to rank: Theory and algorithm, _Proceedings of the 25th International Conference on Machine Learning._
