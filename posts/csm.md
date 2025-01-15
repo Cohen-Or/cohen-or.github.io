@@ -167,7 +167,7 @@ result['predicted_rank']= result.groupby(level=0)['model_score']
 ```
 ## Evaluation
 In the research [2] the LambdaMART algorithm was benchmarked with several ranking techniques and models and significantly outperformed. From the figure below which charts the cumulative returns we can clearly notice the advantage of the Learning to Rank methods (LMLE, LNet, LM, and RNet) over traditional ranking methods. 
-![Cumulative Returns. Source: Poh et al.](/images/csm1.png)
+![Cumulative Returns. Source: Poh et al.](/images/csm2.png)
 Wealth curves rescaled to target volatility. Source: [2]
 
 The reference benchmark models are:
