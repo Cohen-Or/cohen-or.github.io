@@ -53,7 +53,7 @@ To solve this, we can use quadratic programming or other numerical optimization 
 ### Putting the theory into practice
 Markowitz acknowledged the challenge of accurately forecasting the returns of investment assets and recognized the need to incorporate additional methods and judgement in order to successfully implement his framework. The concept is brilliant but like other things in life, the proof is in the pudding. More accurate forecasts will enhance our investment performance and vice versa. 
 
-The forecasting signals from the JM-XGB [2] framework we viewed in the [last post](/posts/rsaa1.html) can help us improve our forecast for asset class return given the predicted market-regime. For effectiveness and simplicity reasons, the regime forecasts are not used for covariance estimation.
+The forecasting signals from the JM-XGB [2] framework we viewed in the [previous post](/posts/rsaa1.html) can help us improve our forecast for asset class return given the predicted market-regime. For effectiveness and simplicity reasons, the regime forecasts are not used for covariance estimation.
 
 As you know or may have guessed, there are several open-source code libraries that allow us to implement these models efficiently and backtest over long periods at lightning speed.  PyPortfolioOpt is an extensive and efficient library for implementing portfolio optimization models. 
 
