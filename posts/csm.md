@@ -18,6 +18,7 @@ Like any trading strategy, momentum strategies have unique risks and overlooking
 
  The ever rising amounts of digital data and the need to effectively search through it have led to significant progress in a family of algorithms in the domain of Information Retrieval that are known as Learning to Rank or **machine-learned ranking (MLR)**. These algorithms provide in response to a query a ranking of the results based on some metric of relevance.   
 ![Learning to Rank](https://www.elastic.co/guide/en/elasticsearch/reference/current/images/search/learning-to-rank-overview.png)
+Learning to rank in search task. Souce: Elastic Search.
 
 **LambdaMART** is a state-of-the-art MLR model developed by Christopher J.C. Burges and his colleagues at Microsoft Research [1]. Under the hood, the ranking task is transformed into a pairwise classification or regression problem. That means you look at pairs of items at a time, come up with the optimal ordering for that pair of items, and then use it to come up with the final ranking for all the results. 
 
@@ -167,6 +168,8 @@ result['predicted_rank']= result.groupby(level=0)['model_score']
 ## Evaluation
 In the research [2] the LambdaMART algorithm was benchmarked with several ranking techniques and models and significantly outperformed. From the figure below which charts the cumulative returns we can clearly notice the advantage of the Learning to Rank methods (LMLE, LNet, LM, and RNet) over traditional ranking methods. 
 ![Cumulative Returns. Source: Poh et al.](/images/csm1.png)
+Wealth curves rescaled to target volatility. Source: [2]
+
 The reference benchmark models are:
 
 * Random (Rand) – This model select stocks at random, and is included to provide an absolute baseline sense of what the ranking measures might look like assuming portfolios are composed in such a manner.
@@ -187,6 +190,7 @@ The reference benchmark models are:
 
 The following performance metrics taken from [2] solidify the conclusion as it stands out that **the LambdaMART algorithm achieved superior performance across all risk adjusted performance metrics** (Sharpe, MDD, Sortino, and Calmar).  Most noticeable is the average out-of-sample Sharpe ratio of ~2.1 that was acheived with a monthly rebalance frequency. This is quite impressive considering that the test set includes the global financial crisis of 2007.
 ![Preformance Metrics. Source: Poh et al.](/images/csm2.png)
+Annualized performance metrics. Source: [2]
 
 ## Conclusion
 Momentum is a powerful factor that we can harness to managing our investments and can in fact greatly compliment other factors such as value. We saw how algorithms from another domain can help us with the right methodology and clever predictors. 
