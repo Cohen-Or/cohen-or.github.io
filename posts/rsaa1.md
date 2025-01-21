@@ -12,7 +12,7 @@ In other words, Statman conclusion was that strategic asset allocation is moveme
 
 Between the the two approaches [1] compared (strategic vs. tactical asset allocation) exists dynamic asset allocation (DAA). In DAA, we alter the weights of the various asset classes in our portfolio based on the prevailing market conditions. In this way, we still benefit from diversification by allocating to different asset classes but limit the downside risk by avoiding sustained periods of declines.
 
-As always, we should consider the risks and limitations which are mainly the transaction costs that are associated with higher turnover in our portfolio and the possibility of wrong forecasts the can eventually lead to loses rather than gains. This leads us to the understanding that the proof is in the pudding - DAA can have a sustained positive impact on our investment performance, if we have good predictions on the market.
+As always, we should consider the risks and limitations which are mainly the transaction costs that are associated with higher turnover in our portfolio and the possibility of wrong forecasts the can eventually lead to losses rather than gains. This leads us to the understanding that the proof is in the pudding - DAA can have a sustained positive impact on our investment performance, if we have good predictions on the market.
 
 ## Predicting Market Regimes
 
