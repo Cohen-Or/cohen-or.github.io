@@ -79,7 +79,7 @@ The VIX index is a forward-looking volatility estimator for the next 30-days bas
 
 ### Coupling identification and forecasting models 
 
-On the above foundation of the two models we can develop the training loop. On every training iteration we use an 11-year lookback window and a given λ value to: (1) fit a SJM to generate regime labels with the returns based features,  (2) fit an XGBoost classifier for the labels with the expanded features set , and (3) generate daily regime forecasts for the next six-months. 
+On this foundation of the two models we can develop the training loop. On every training iteration we use an 11-year lookback window and a given λ value to: (1) fit a SJM to generate regime labels with the returns based features,  (2) fit an XGBoost classifier for the labels with the expanded features set , and (3) generate daily regime forecasts for the next six-months. 
 
 ```python
 def algorithm1(X1, X2, returns, jump_penalty, pred_start, pred_end):
