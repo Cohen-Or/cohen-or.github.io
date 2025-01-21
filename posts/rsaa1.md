@@ -16,7 +16,7 @@ As always, we should consider the risks and limitations which are mainly the tra
 
 ## Predicting Market Regimes
 
-Shu et al. introduce in their research [2] a hybrid framework that on a high level augments asset allocation methods, such as mean-variance optimization, with asset-specific return and risk forecasts.  These forecasts are derived using a sophisticated model that is based on a binary regime prediction (Bull or Bear) to determine the optimal asset allocation weights.
+Shu et al. introduce in their research [2] a hybrid framework that on a high level augments asset allocation methods, such as mean-variance optimization, with asset-specific return and risk forecasts.  These forecasts are derived using a sophisticated model that is based on a binary regime prediction (Bull or Bear) and are used to determine the optimal asset allocation weights.
 
 Since market regimes are latent states, identifying and labelling them is a prerequisite for training a classification model that predicts the forthcoming regime based on historical data. At first, this may seem unnecessary since our premise is that market regimes are persistent and thus the identification model can suffice. In practice, separating the task of forecasting regimes to identification and prediction stages allows us to employ a specialized model for each step.
 
