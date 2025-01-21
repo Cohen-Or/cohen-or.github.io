@@ -10,7 +10,7 @@ I hold an MBA with a major in Finance (Magna Cum Laude) from [EDHEC Busniess Sch
 
 Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagaya](pagaya.com) and [Bank Leumi](https://english.leumi.co.il/WnnnWn/Company_Profile/38044/). 
 
-[Email](mailto:or.cohen@edhec.com) / [Linkedin](https://www.linkedin.com/in/or-cohen/) / [Github](https://github.com/Cohen-Or)
+[Email](mailto:or.cohen@edhec.com) / [Linkedin](https://www.linkedin.com/in/or-cohen/) / [Github](https://github.com/Cohen-Or) / [Tableau](https://public.tableau.com/app/profile/or.cohen/vizzes)
 
 ## Writing
 ___
