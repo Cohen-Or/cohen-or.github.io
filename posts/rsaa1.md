@@ -68,7 +68,7 @@ yields_df = pd.DataFrame({
 vix = yf.Ticker('^vix').history(period='max').Close.apply(np.log)
  
 macro_features = pd.DataFrame({
-	'2y_trend': yields_df['2y'] - yields_df['2y'].ewm(halflife=21).mean(),
+	'2y_trend': yields_df['10y'] - yields_df['2y'].ewm(halflife=21).mean(),
 	'YC_slope': yields_df['spread'].ewm(halflife=10).mean(),
 	'YC_trend': yields_df['spread'] - yields_df['spread'].ewm(halflife=21).mean(),
 	'VIX_trend': vix - vix.ewm(halflife=63).mean(),
