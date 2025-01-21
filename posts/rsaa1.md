@@ -77,7 +77,7 @@ macro_features = pd.DataFrame({
 ```
 The VIX index is a forward-looking volatility estimator for the next 30-days based on the prices of options on the S&P500. We calculate its smoothed trend to gauge the anticipated equity risk by market participants. Lastly, the correlation of stocks and bonds  is often falling during a recession or an economic crisis due to the "flight to safety" phenomenon, and on the other hand, a positive correlation is observed during periods of economic growth and low interest-rates in which investors confidence is high.
 
-### Coupling identification and forecasting models 
+### Coupling Identification and Forecasting Models 
 
 On this foundation of the two models we can develop the training loop. On every training iteration we use an 11-year lookback window and a given λ value to: (1) fit a SJM to generate regime labels with the returns based features,  (2) fit an XGBoost classifier for the labels with the expanded features set , and (3) generate daily regime forecasts for the next six-months. 
 
