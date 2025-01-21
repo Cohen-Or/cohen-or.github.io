@@ -144,7 +144,7 @@ In addition, this way of linking the classification and forecasting achieves a s
 ![LargeCap Wealth Curve](/images/rsaa1.png)
 ![REIT Wealth Curve](/images/rsaa2.png)
 ![AggBond Wealth Curve](/images/rsaa3.png)
-Regime forecasts of JM-XGB for LargeCap stocks, REITs and the US AggBond index. Source: [1]
+Regime forecasts of JM-XGB for LargeCap stocks, REITs and the US AggBond index. Source: [2]
 
 A birds eye-view of all three proves that the optimized market regime forecasts are distinct to each asset class and hence a tailored model for each is preferable. For instance the early impact that the subprime mortgage crisis had on REITs is reflected in the earlier bearish regime forecast for REITs compared to LargeCaps.
 
@@ -156,7 +156,7 @@ Another challenge, that in a way is here to stay, is the delay of forecasts evid
 
 ![Performance benchmarks](/images/rsaa4.png)
 Performance metrics for the 0/1 strategy applied to individual assets vs. buy & hold, between 2007-2023. A one-way transaction cost of 5 basis points was applied. 
-Source: [1]
+Source: [2]
 
 ## Midpoint Conclusion
 The outcomes in the table above prove the power of incorporating market regimes in our risk and portfolio management, even when used only as a simple kill switch (0/1 strategy). It is particularly effective for mitigating the downside risk as evident by the lower maximum drawdown across all asset classes.  
