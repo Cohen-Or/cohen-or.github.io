@@ -45,7 +45,7 @@ assets = {
 risk_free_rate = get_fred_data(series='TB3MS', frequency='m')
 ```
 
-This asset classn universe offer extensive diversification across macroeconomic factors and various countries, including both developed and emerging markets, and span all the major assets used by traditional allocators: equities, fixed income, real estate, and commodities.
+This asset class universe offer extensive diversification across macroeconomic factors and various countries, including both developed and emerging markets, and span all the major assets used by traditional allocators: equities, fixed income, real estate, and commodities.
 
 For the first stage of the framework, classification to regimes using the continuous SJM, the set of features will be derived from the historic daily excess returns (i.e. over the risk free rate) of each asset. These features are the EWMA of raw-returns, log-drawdown and Sortino ratio across 3 different half-life values: 5,10,21.  We get the Sotrino ratio from the division of the EWMA return by EWMA log-drawdown for the same half-life value. In essence, these features capture the recent excess returns, down-side risk and down-side risk adjusted returns for each asset.
 
