@@ -2,7 +2,7 @@
 
 # Or Cohen
 
-I am a quantitative researcher and portfolio manager. 
+I am a quantitative researcher and advisor speciliased in portfolio and risk management. 
 
 My areas of interest are the application of machine learning and neural networks in systematic trading, portfolio management, global macroeconomics, and factor investing.
 
