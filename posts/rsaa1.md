@@ -1,6 +1,6 @@
 [Or Cohen](/index.html)
 # Regime Based Dynamic Asset Allocation - Part 1
-In this post we will find out how market regimes forecasts can help us to improve our portfolio asset allocation. If you haven't read the [previous post](posts/sjm.html) about Statistical Jump Model (SJM), I recommend starting there. 
+In this post we will find out how market regimes forecasts can help us to improve our portfolio asset allocation. If you haven't read the [previous post](https://cohen-or.github.io/posts/sjm.html) about Statistical Jump Model (SJM), I recommend starting there. 
 
 Since my service in the Israeli Navy I'm hooked on sailing and exploring the seas. One basic truth that all sailors know is that although you can't control the wind, you can adjust the sail. This simple notion is also true for our portfolio management. 
 
