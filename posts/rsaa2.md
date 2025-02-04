@@ -1,7 +1,7 @@
 [Or Cohen](/index.html)
 # Regime Based Dynamic Asset Allocation - Part 2
 
-Following the [previous post](/rsaa1.html), in this post we will learn how to incorporate regime predictions in our asset allocation models.
+Following the [previous post](posts/rsaa1.html), in this post we will learn how to incorporate regime predictions in our asset allocation models.
 
 Statistics is the field of science that tells you that if your feet are in the oven and your head is in the freezer, on average, your body is fine. When it comes to asset management though, the variation of our subject, portfolio returns, is as important as its average; This is the core principal that guided 24-year old Harry Markowitz in deriving his Mean-Variance analysis, that was originally introduced in 1952 [1] and was since adopted by the vast majority of portfolio managers.
 
