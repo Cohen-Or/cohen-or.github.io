@@ -20,7 +20,7 @@ Shu et al. introduce in their research [2] a hybrid framework that on a high lev
 
 Since market regimes are latent states, identifying and labelling them is a prerequisite for training a classification model that predicts the forthcoming regime based on historical data. At first, this may seem unnecessary since our premise is that market regimes are persistent and thus the identification model can suffice. In practice, separating the task of forecasting regimes to identification and prediction stages allows us to employ a specialized model for each step.
 
-The novel hybrid identification-forecasting approach proposed in [2] delivers better out-of-sample forecasting results than other variants of HMM based forecasting. In essence, it couples the SJM [3] described in the [previous post](posts/sjm.html) with a boosted-trees classifier, XGBoost, via a cross-validation (CV) hyper-parameter optimization for the jump penalty factor λ that aims to maximize Sharpe ratio. 
+The novel hybrid identification-forecasting approach proposed in [2] delivers better out-of-sample forecasting results than other variants of HMM based forecasting. In essence, it couples the SJM [3] described in the [previous post](https://cohen-or.github.io/posts/sjm.html) with a boosted-trees classifier, XGBoost, via a cross-validation (CV) hyper-parameter optimization for the jump penalty factor λ that aims to maximize Sharpe ratio. 
 
 Implementing this framework requires a fair share of engineering but in return delivers a robust and performant forecaster that can significantly ameliorate our asset allocation and risk management. Let's have a look at the practical steps to understand it better. 
 
