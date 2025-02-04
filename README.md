@@ -19,6 +19,6 @@ ___
 
 * 2025-01-02 [Regime Based Dynamic Asset Allocation - Part 1](/posts/rsaa1.md)
   
-* 2024-12-08 [Change Point Detection with Statistical Jump Models](/posts/sjm.md) [Colab Notebook](https://colab.research.google.com/github/Cohen-Or/cohen-or.github.io/blob/5e9b2b2276f58e5581d6bc6f58a0c00d4545ed38/notebooks/Statistical%20Jump%20Model%20Basics.ipynb)
+* 2024-12-08 [Change Point Detection with Statistical Jump Models](/posts/sjm.md) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Cohen-Or/cohen-or.github.io/blob/5e9b2b2276f58e5581d6bc6f58a0c00d4545ed38/notebooks/Statistical%20Jump%20Model%20Basics.ipynb)
 
 * 2024-11-12 [Cross Sectional Momentum with LambdaMART](/posts/csm.md)
