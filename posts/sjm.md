@@ -2,7 +2,7 @@
 # Change Point Detection with Statistical Jump Models
 In this post we will explore the benefits of identifying regimes in financial markets and learn how to statistically classify and predict change points in regimes. 
  
-The German philosopher Georg Hegel said|: *"The only thing that we learn from history is that we learn nothing from history"*. History repeat itself in almost every aspect of our lives and financial markets are no different.  One valuable insight we can gain from studying the history of financial markets is the prevalence of common patterns that repeat in the evolvement of asset prices.
+The German philosopher Georg Hegel said: *"The only thing that we learn from history is that we learn nothing from history"*. History repeat itself in almost every aspect of our lives and financial markets are no different.  One valuable insight we can gain from studying the history of financial markets is the prevalence of common patterns that repeat in the evolvement of asset prices.
 
 The cyclical regime switching behavior of asset returns is well-documented across various asset classes, including equities, fixed income, commodities, currencies, and cryptocurrencies.
 
