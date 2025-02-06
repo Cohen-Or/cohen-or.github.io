@@ -167,7 +167,7 @@ result['predicted_rank']= result.groupby(level=0)['model_score']
 ```
 ## Evaluation
 In the research [2] the LambdaMART algorithm was benchmarked with several ranking techniques and models and significantly outperformed. From the figure below which charts the cumulative returns we can clearly notice the advantage of the Learning to Rank methods (LMLE, LNet, LM, and RNet) over traditional ranking methods. 
-![Cumulative Returns. Source: Poh et al.](/images/csm2.png)
+![Cumulative Returns. Source: Poh et al.](/images/csm1.png)
 Wealth curves rescaled to target volatility. Source: [2]
 
 The reference benchmark models are:
@@ -189,7 +189,7 @@ The reference benchmark models are:
 * ListMLE (LMLE) – Listwise LTR model by [7].
 
 The following performance metrics taken from [2] solidify the conclusion as it stands out that **the LambdaMART algorithm achieved superior performance across all risk adjusted performance metrics** (Sharpe, MDD, Sortino, and Calmar).  Most noticeable is the average out-of-sample Sharpe ratio of ~2.1 that was acheived with a monthly rebalance frequency. This is quite impressive considering that the test set includes the global financial crisis of 2007.
-![Preformance Metrics. Source: Poh et al.](/images/csm1.png)
+![Preformance Metrics. Source: Poh et al.](/images/csm2.png)
 Annualized performance metrics. Source: [2]
 
 ## Conclusion
