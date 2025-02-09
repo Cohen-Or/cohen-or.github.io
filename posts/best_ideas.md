@@ -1,4 +1,3 @@
-
 [Or Cohen](/index.html)
 
 # Let The Best Ideas Win
@@ -59,7 +58,9 @@ def openfigi_cusips_mapper(cusips:list, id_type:str):
 	for index, lot in enumerate(cusips_lots):
 		try:
 			query = [{"idType": id_type, "idValue": str(cusip)} for cusip in lot]
-			open_figi_resp = json.loads(requests.post(OPEN_FIGI_API, json=query, headers=HEADERS).text)
+			open_figi_resp = json.loads(requests.post(
+			OPEN_FIGI_API, json=query, headers=HEADERS).text
+			)
 			tickers = []
 			for resp in open_figi_resp:
 				if resp.get("warning"):
@@ -101,6 +102,7 @@ The constituents of the 11 MSCI Global World Sector Indexes and their weights ca
 $$
 \text{Adjustment Factor} = \frac{N_{\text{index}}}{N_{\text{portfolio}}}
 $$
+
 Where:
 
 -   $$N_{\text{index}}$$​ is the number of stocks in the sector index.
@@ -114,13 +116,13 @@ There is a myriad of statistical measures and ways to explore and learn from the
  - What is the average 'overweight tenure' (i.e. number of consecutive quarters the position is overweight) of each stock.
  - Who are the favorites of specialized managers? Specialized managers can be identified by a high concentration in a specific sector. For example, following its rapid rise Nvidia's portfolio of public investments surpassed $100M hence required the company to disclose its holdings. 
  
- ## Conclusion
+## Conclusion
 
 Coming up with good investment ideas requires looking ahead to the future and forming an holistic opinion on the prospects of a company. The set of skills and creative thinking that are required to succeed in that task are likely to remain the domain of professional investment managers. 
 
 Conviction by investment managers has been proven to be a strong indicator of a higher probability of future outperformance. Finding the best ideas of professional managers and integrating this information in our portfolio construction framework can greatly add to our overall performance.  
 
- In my [twitter (X) account](https://x.com/OrCohen29219725) you will find the top insights I discovered following the recipe depicted in this post. As always, please don't hesitate to send me your suggestions, comments and any other feedback you have. Thanks for reading!
+ In my [twitter (X) account](https://x.com/OrCohen29219725) you will find the top insights I discovered following the recipe depicted in this post. As always, please don't hesitate to send me your suggestions, comments and any other feedback you have. Thank you for reading!
 
 ___
 References:
