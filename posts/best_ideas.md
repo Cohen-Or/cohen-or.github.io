@@ -1,3 +1,4 @@
+
 [Or Cohen](/index.html)
 
 # Let The Best Ideas Win
@@ -6,11 +7,11 @@ In this post we will explore various approaches to generate alpha from an open s
 
 Winston Churchill once said that "One man with conviction will overwhelm a hundred who have only opinions". Academic studies that examined the performance of securities that were relatively overweighted (ex-ante)  in portfolios of professional investment managers found that they outperformed other securities in the same portfolio as well as the market. On a high-level, their conclusion was that high conviction of investment managers correlates with superior performance. 
 
-The underlying idea is pretty intuitive; you have probably met an investment advisor or manager that had a deep knowledge and understanding of one or several companies that they recommended. In practice though, most professional investors choose to invest in a larger set of stocks for the sake of diversification. The reasons behind the decision to diversify range from regulatory requirements to reducing volatility and the need to deploy more capital.
+The underlying reason is pretty intuitive; you have probably met an investment advisor or manager that had a deep knowledge and understanding of one or several companies that they recommended. In practice though, most professional investors choose to invest in a larger set of stocks for the sake of diversification. The reasons behind the decision to diversify range from regulatory requirements to reducing volatility and the need to deploy more capital.
 
-Since 1978 all institutions that hold greater than $100 million in securities under discretionary management are required to file their holdings in US-listed stocks with the Securities and Exchange Commission (SEC) no later than 45 days after the end of each calendar quarter under a form known as ‘13F’. This data is made publicly available by the SEC to promote transparency in the asset management industry.
+Since 1978 all institutions that hold greater than $100 million in securities under discretionary management are required to file their holdings in US-listed stocks with the Securities and Exchange Commission (SEC) no later than 45 days after the end of each calendar quarter under a form known as [13F](https://www.sec.gov/files/form_13f.pdf). This data is made publicly available by the SEC to promote transparency in the asset management industry.
 
-The financial press as well as investment professionals and amateurs review the information found in the 13F forms, often focusing on big name portfolios such as Warren Buffet's Berkshire Heathway. While a naive copycat of a famous institutional portfolio is ethically flawed and prone to failure, a meticulous and comprehensive analysis of this data can provide valuable insights for investment selection, even after the 45 days of delayed disclosure.
+The financial press as well as investment professionals and amateurs review the information found in the 13F fillings, often focusing on big name portfolios such as Warren Buffet's Berkshire Heathway. While a naive copycat of a famous institutional portfolio is ethically flawed and prone to failure, a meticulous and comprehensive analysis of this data can provide valuable insights for investment selection, even after the 45 days of delayed disclosure.
 
 ## Brief Literature Review
 
