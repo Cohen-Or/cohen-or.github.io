@@ -14,6 +14,7 @@ Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagay
 
 ## Writing
 ___
+* 2025-02-20 [Let The Best Ideas Win](/posts/best_ideas.md)
 
 * 2025-01-15 [Regime Based Dynamic Asset Allocation - Part 2](/posts/rsaa2.md)
 
