@@ -14,7 +14,7 @@ Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagay
 
 ## Writing
 ___
-* 2025-02-20 [Let The Best Ideas Win - Analyzing SEC 13F Filings](/posts/best_ideas.md)     [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Cohen-Or/cohen-or.github.io/blob/5e9b2b2276f58e5581d6bc6f58a0c00d4545ed38/notebooks/Statistical%20Jump%20Model%20Basics.ipynb)
+* 2025-02-20 [Let The Best Ideas Win - Analyzing SEC 13F Filings](/posts/best_ideas.md)     <a href="https://colab.research.google.com/gist/AlexeyAB/b769f5795e65fdab80086f6cb7940dae/yolov7detection.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 
 * 2025-01-15 [Regime Based Dynamic Asset Allocation - Part 2](/posts/rsaa2.md)
 
