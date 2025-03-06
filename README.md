@@ -15,7 +15,7 @@ Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagay
 ## Writing
 ___
 
-* 2020-02-25 [Profit Sensitive Credit Risk Models - Part 1](/posts/pscr1.md)
+* 2025-02-24 [Profit Sensitive Credit Risk Models - Part 1](/posts/pscr1.md)
 
 * 2025-02-10 [Let The Best Ideas Win - Analyzing SEC 13F Filings](/posts/best_ideas.md)
 
