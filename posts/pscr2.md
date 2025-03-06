@@ -24,8 +24,9 @@ One key consideration is *prepayment risk*. When borrowers prepay their debt, th
 
 The dataset contains both 3-year and 5-year loans, making the total profitability of 5-year loans naturally higher. Additionally, defaulted loans tend to have shorter lifespans than fully repaid loans. To enable a fair comparison across all loans, we will calculate the total profit for fully paid loans over the average life of defaulted loans, which is approximately *17 months*.
 
+$$
 Profit_{TN} = \frac{(\text{Monthly Installment} \times \text{Avg. Life}) + \text{Prepayment Amount}}{\text{Loan Amount}}
-
+$$
 ```python
 avg_life = df.query('default').tenure.mean()
 
