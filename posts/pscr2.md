@@ -86,7 +86,7 @@ To improve the algorithm’s ability to detect *profitable high-risk loans*, we 
 The cost-sensitive model trained with *profit-adjusted weights* achieves significantly higher profitability, reinforcing that *investing in riskier loans with tailored models* leads to superior returns.
 
 ![Average profits from each model ](/images/pscr3.png)
->Profitability comparison between models and decision threshold
+Profitability comparison between models and decision threshold.
 
 ## Conclusion
 
