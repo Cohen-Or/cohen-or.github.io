@@ -2,8 +2,8 @@
 
 # Profit-Sensitive ML Credit Risk Models - Part 2
   
-<a  target="_blank"  href="https://colab.research.google.com/github/Cohen-Or/cohen-or.github.io/blob/ccbb29245538a7afaa5f16cb6357712a2027a2d7/notebooks/LC_XGB_profit_sensetive.ipynb">
-<img  src="https://colab.research.google.com/assets/colab-badge.svg"  alt="Open In Colab"/>
+<a target="_blank" href="https://colab.research.google.com/github/Cohen-Or/cohen-or.github.io/blob/d0a23ddd0a78c3ccc72867e75ae0cd603bd52190/notebooks/LC_XGB_profit_sensetive.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 Following the [previous post](https://chatgpt.com/pscr1.html), in this post, we will explore how to enhance the business applicability of an XGBoost classifier by incorporating cost data into its learning process.
