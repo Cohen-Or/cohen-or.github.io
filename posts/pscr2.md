@@ -44,7 +44,7 @@ df.loc[~df.default, 'pi_tn'] = df.exp_total_pymt.div(df.loan_amnt)
 
 ```
 
-For defaulted loans, the Lending Club dataset includes the recovery amount, which represents the funds lenders manage to recover after default. Since the collection process begins *only after 150 days past due* and can take months, the time value of money must be considered. To properly reflect the loss, we will discount the recovered amount using the present-value formula, assuming it is received approximately two years after the last payment date. Many financial institutions use the loan interest rate as the discount rate, though a more conservative approach would be to use the risk-free rate.
+For defaulted loans, the Lending Club dataset includes the recovery amount, which represents the funds lenders manage to recover after default. Since the collection process begins *only after 150 days past due* and can take months, the time value of money must be considered. To properly reflect the loss, we will discount the recovered amount using the present-value formula, assuming it is received approximately two years after the last payment date. Many financial institutions use the loan interest rate as the discount rate, though a less conservative approach would be to use the risk-free rate.
 
 ```python
 # Outcome of incorrectly predicted good loans
