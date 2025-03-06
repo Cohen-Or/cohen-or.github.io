@@ -41,7 +41,7 @@ To illustrate risk-based pricing with a simple example, consider a bank that off
 For amortized loans, additional factors must be considered, such as the **exposure at default (EAD)** (the outstanding principal at the time of default) and the **loss given default (LGD)** (the expected loss in case of default). These three factors—PD, EAD, and LGD—form the basis for calculating the default premium in risk-based pricing. According to the Basel II framework, the default premium is computed as:
 
  $$
-Default Premium = Loss Given Default × Probability of Default
+ֿ\text{Default Premium} = \text{Loss Given Default} \times \text{Probability of Default}
  $$
  
 While default risk is a crucial factor in pricing, lenders must also account for **prepayment risk**. When borrowers prepay their loans, origination costs can consume a significant portion of interest income. Additionally, if interest rates decline, prepayment reduces income because old loans are replaced with new loans at lower rates. Thus, prepayment risk is an essential consideration in risk-based pricing.
