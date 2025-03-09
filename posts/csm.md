@@ -1,44 +1,47 @@
 [Or Cohen](/index.html)
 # Cross Sectional Momentum and Learning to Rank with LambdaMART
-In this post we will learn how algorithms that were originally developed to rank results from a search query can help us distinguish the winners and losers in our investment selection. 
 
-There's the old joke that when your taxi driver tells you to buy a stock, you know it's time to sell. It points out to the fact that the diffusion-of, and investors' response-to new information often lags significant price moves. This ripple effect in investors reaction leads to auto-correlation of assets' returns and the persistence of a trend, be it up or down.
+In this post, we explore how ranking algorithms—originally developed for search engines—can help us identify winners and losers in investment selection.
 
-The momentum effect in financial assets can be dated as far back as the Dutch merchant fleet in 1600s Amsterdam. Its existence is supported by the foundational economics theory of demand-and-supply and is a manifestation of a persistent deviation from market equilibrium. 
+There’s an old joke that when your taxi driver tells you to buy a stock, it’s time to sell. This highlights the fact that the diffusion of new information and investors’ responses often lag behind significant price movements. This ripple effect in investors’ reactions leads to autocorrelation in asset returns, reinforcing the persistence of trends—whether upward or downward.
 
-> "An object in motion tends to stay in motion, an object at rest tends to remain at rest." – Sir Isaac Newton
+The momentum effect in financial markets dates back as far as the Dutch merchant fleet in 17th-century Amsterdam. Its existence is supported by fundamental economic principles of supply and demand and reflects persistent deviations from market equilibrium.
 
-Time series momentum (TSM) is identified by looking at the asset's price history, while cross-sectional momentum (CSM) is identified by benchmarking the assets performance over similar assets. Both can be observed over varying time horizons and both successfully capture risk premia, contrary to the efficient market hypothesis.
+> _"An object in motion tends to stay in motion, an object at rest tends to remain at rest."_ – Sir Isaac Newton
 
-A major advantage of the CSM strategy is the insulation against the common market moves via hedging: by buying the assets with the highest expected returns and selling the assets with lowest, the effect of the broad market movements known as beta is largely canceled out. Accurately ranking the assets is naturally the key to improved trading performance.
+Time-series momentum (TSM) is identified by analyzing an asset’s own price history, whereas cross-sectional momentum (CSM) is observed by benchmarking an asset’s performance against similar assets. Both can be studied over different time horizons and effectively capture risk premia, challenging the efficient market hypothesis.
 
-Like any trading strategy, momentum strategies have unique risks and overlooking them is a surefire way to losing money. The primary enemy of momentum is its counterpart effect, mean-reversion, since there is simply no guarantee that the trend will persist and not reverse sharply. Market conditions also play a crucial role since momentum performs well in trending markets but struggles in sideways or volatile markets. 
+A key advantage of the CSM strategy is its ability to hedge against broad market movements (beta) by going long on assets with the highest expected returns and short on those with the lowest. Accurately ranking assets is crucial for optimizing trading performance.
+
+Like any trading strategy, momentum strategies carry unique risks, and overlooking them is a surefire way to lose money. The primary risk to momentum is its counterpart, **mean reversion**, since trends can reverse sharply. Additionally, momentum strategies perform well in trending markets but struggle in sideways or volatile conditions.
 
 ## Learning to Rank and LambdaMART
 
- The ever rising amounts of digital data and the need to effectively search through it have led to significant progress in a family of algorithms in the domain of Information Retrieval that are known as Learning to Rank or **machine-learned ranking (MLR)**. These algorithms provide in response to a query a ranking of the results based on some metric of relevance.   
+The increasing volume of digital data and the need for efficient search algorithms have driven advances in **machine-learned ranking (MLR)**—a family of algorithms designed for information retrieval. These models rank search results based on relevance metrics.
 ![Learning to Rank](https://www.elastic.co/guide/en/elasticsearch/reference/current/images/search/learning-to-rank-overview.png)
 Learning to rank in search task. Souce: Elastic Search.
 
-**LambdaMART** is a state-of-the-art MLR model developed by Christopher J.C. Burges and his colleagues at Microsoft Research [1]. Under the hood, the ranking task is transformed into a pairwise classification or regression problem. That means you look at pairs of items at a time, come up with the optimal ordering for that pair of items, and then use it to come up with the final ranking for all the results. 
 
-Like a good yogi, LambdaMART is both powerful and flexible, making it the go-to choice for a wide range of problems. For example, for ranked search results we can optimize it for precision in order to get only the most relevant results. In the case of CSM, we are interested in better predictions across the entire spectrum so maximizing a ranking-specific evaluation metric, such as **NDCG** (Normalized Discounted Cumulative Gain) will be a better fit.
+One such model is **LambdaMART**, a state-of-the-art MLR algorithm developed by Christopher J.C. Burges and his colleagues at Microsoft Research [1]. LambdaMART transforms ranking tasks into pairwise classification or regression problems. This means it evaluates pairs of items at a time, determines their optimal ordering, and then combines these comparisons into a final ranking.
 
-**MART** stands for Multiple Additive Regression Trees which means the algorithm uses gradient boosting with decision tress. Boosting trees are built iteratively, where each tree corrects the errors of the previous ones with the goal of optimizing ranking metrics like NDCG or Mean Reciprocal Rank (MRR).
+LambdaMART’s flexibility makes it a preferred choice for various applications. In ranked search results, it can be optimized for **precision**, retrieving only the most relevant entries. In financial applications like CSM, maximizing a ranking-specific evaluation metric such as **NDCG (Normalized Discounted Cumulative Gain)** is more suitable.
+
+The **MART** component of LambdaMART stands for **Multiple Additive Regression Trees**, which means the algorithm utilizes gradient boosting with decision trees. Boosting iteratively builds trees, where each new tree corrects errors from previous iterations to optimize ranking metrics such as NDCG or **Mean Reciprocal Rank (MRR).**
 
 ## Leveraging MLR for CSM
-The advantage of these new MLR techniques in CSM and other financial applications stems from the fact that they circumvent the need to use a regression or classification loss functions for returns and address the ranking task directly. 
 
-The research by Poh et. al [2] introduces a novel framework for using MLR to construct CSM portfolios and demonstrates the dramatic improvements in performance over other techniques of ranking momentum in financial assets. 
+The advantage of MLR techniques in financial applications stems from their ability to address ranking tasks directly—circumventing the need for standard regression or classification loss functions on returns.
 
-The proposed framework uses momentum indicators that are derived from historic daily prices of the past 3 to 12-months periods. These predictors are used to predict the one-month ahead winners and losers. One of these predictors is a sophisticated version of the MACD momentum indicator termed CTA Momentum that was originally introduced in [3]. 
+A study by Poh et al. [2] introduced a framework for using MLR to construct CSM portfolios, demonstrating significant performance improvements over traditional ranking techniques. The framework utilizes momentum indicators derived from historical daily prices over 3- to 12-month periods to predict one-month-ahead winners and losers.
+
+One such predictor is the *CTA Momentum Indicator*, a refined version of the MACD momentum indicator, originally introduced in [3].
 
 ### CTA Momentum Indicator
-This indicator is aimed at measuring the strength of a trend based on the premise that (a) volatility diminishes the significance of a trend and (b) that different assets exhibit different trend patterns across time and hence a good indicator needs to reflect a standard score. If you got this, the rest is just fancy math. 
+This indicator measures trend strength under two assumptions: (1) volatility weakens trend significance, and (2) different assets exhibit unique trend behaviors over time. A robust indicator should account for these variations.
 
 The algorithm for obtaining this signal is the following (as detailed in [3]):
 
-*Step 1:* Select 3 sets of time-scales, with each set consisting of a short and a long exponentially weighted moving average (EWMA). The authors chose $$S_k = (8, 16, 32)$$ and $$L_k = (24, 48, 96).$$  Those numbers are not look-back days or half-life numbers. In fact, each number (let’s call it n) translates to a lambda decay factor ($$\lambda$$) to plug into the standard definition of an EWMA. The half-life (HL) is then given by:
+*Step 1:* Select three time-scale sets, each with a short and long exponentially weighted moving average (EWMA): The authors chose $$S_k = (8, 16, 32)$$ and $$L_k = (24, 48, 96).$$  Those numbers are not look-back days or half-life numbers. In fact, each number (let’s call it n) translates to a lambda decay factor ($$\lambda$$) to plug into the standard definition of an EWMA. The half-life (HL) is then given by:
 
 $$ 
 HL = \frac{\log(0.5)}{\log(\lambda)} = \frac{\log(0.5)}{\log\left(1 - \frac{1}{n}\right)} ​
