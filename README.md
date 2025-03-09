@@ -15,7 +15,9 @@ Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagay
 ## Writing
 ___
 
-* 2025-03-06 [Profit Sensitive Credit Risk Models - Part 2](/posts/pscr2.md)
+* 2025-03-06 [Profit Sensitive Credit Risk Models - Part 2](/posts/pscr2.md) <a target="_blank" href="https://colab.research.google.com/github/Cohen-Or/cohen-or.github.io/blob/d0a23ddd0a78c3ccc72867e75ae0cd603bd52190/notebooks/LC_XGB_profit_sensetive.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" style="display: inline; vertical-align: middle; margin-left: 10px;"/>
+</a>
 
 * 2025-02-24 [Profit Sensitive Credit Risk Models - Part 1](/posts/pscr1.md)
 
