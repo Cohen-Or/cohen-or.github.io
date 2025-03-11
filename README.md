@@ -8,7 +8,7 @@ My areas of interest are the application of machine learning and neural networks
 
 I hold an MBA with a major in Finance (Magna Cum Laude) from [EDHEC Busniess School](https://www.edhec.edu/en) and a B.A. in Economics from the [University of Haifa](https://www.haifa.ac.il/?lang=en). Currently I read for the [CFA program](https://www.cfainstitute.org/programs/cfa-program) (passed Level 1). 
 
-Previously, I have worked at [Morningstar](https://www.morningstar.com/), [Pagaya](pagaya.com) and [Bank Leumi](https://english.leumi.co.il/WnnnWn/Company_Profile/38044/). 
+Previously, I have worked at [Amadeus France](https://amadeus.com/en), [Morningstar](https://www.morningstar.com/), [Pagaya](pagaya.com) and [Bank Leumi](https://english.leumi.co.il/WnnnWn/Company_Profile/38044/). 
 
 [Email](mailto:or.cohen@edhec.com) / [Linkedin](https://www.linkedin.com/in/or-cohen/) / [Github](https://github.com/Cohen-Or) / [Tableau](https://public.tableau.com/app/profile/or.cohen/vizzes)
 
