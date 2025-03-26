@@ -15,7 +15,7 @@ Previously, I have worked at [Amadeus (France)](https://amadeus.com/en), [Mornin
 ## Writing
 ___
 
-* 2025-03-26 [*Hebrew:* Interpreting Earnings Calls - Advancing Portfolio Management with LLMs](posts/ec_nlp.html)<a target="_blank" href="https://colab.research.google.com/github/Cohen-Or/cohen-or.github.io/blob/607fab5a1540b1c952afe4c75bceeb4406c66645/notebooks/Earnings_Calls_NLP.ipynb">
+* 2025-03-26 [*Hebrew:* Interpreting Earnings Calls - LLM Driven Alpha Factors](posts/ec_nlp.html)<a target="_blank" href="https://colab.research.google.com/github/Cohen-Or/cohen-or.github.io/blob/607fab5a1540b1c952afe4c75bceeb4406c66645/notebooks/Earnings_Calls_NLP.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" style="display: inline; vertical-align: middle; margin-left: 10px;"/>
 </a>
 
