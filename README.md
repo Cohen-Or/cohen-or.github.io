@@ -15,6 +15,10 @@ Currently I work as a Senior Quantitaitive Analyst at [eToro](https://www.etoro.
 ## Writing
 ___
 
+* 2026-09-19 [Pricing The Collateral: Machine Learning Cash Flows For MBS And CLO Valuation](/posts/mbs_ml_valuation.md) <a target="_blank" href="https://colab.research.google.com/github/Cohen-Or/cohen-or.github.io/blob/0bcf0dd6f478d45afbff3e9a30013bb4a49d02ce/notebooks/mbs_ml_valuation.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" style="display: inline; vertical-align: middle; margin-left: 10px;"/>
+</a>
+
 * 2025-03-26 [*Hebrew:* Interpreting Earnings Calls - LLM Driven Alpha Factors](posts/ec_nlp.html)<a target="_blank" href="https://colab.research.google.com/github/Cohen-Or/cohen-or.github.io/blob/607fab5a1540b1c952afe4c75bceeb4406c66645/notebooks/Earnings_Calls_NLP.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" style="display: inline; vertical-align: middle; margin-left: 10px;"/>
 </a>
